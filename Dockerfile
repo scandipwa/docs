@@ -9,6 +9,6 @@ COPY . /docs/
 
 WORKDIR /docs
 
-EXPOSE 3000
+EXPOSE 4000
 
 CMD [ "docsify", "start", "." ]
