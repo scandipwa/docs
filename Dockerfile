@@ -11,4 +11,4 @@ WORKDIR /docs
 
 EXPOSE 3000
 
-CMD [ "docsify", "serve", "." ]
+CMD [ "docsify", "start", "." ]
