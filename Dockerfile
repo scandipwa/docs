@@ -2,7 +2,8 @@ FROM node:10-alpine
 LABEL maintainer="Scandiweb <info@scandiweb.com>"
 LABEL authors="Jurijs Jegorovs jurijs+oss@scandiweb.com"
 
-RUN npm install -g docsify-cli@latest
+RUN npm config set unsafe-perm true &&\
+    npm install -g docsify-cli@latest
 
 COPY . /docs/
 
