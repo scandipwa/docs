@@ -5,6 +5,7 @@
   <title>ScandiPWA Documentation</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="shortcut icon" href="/images/favicon.ico" /> 
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
   <style>
     .sidebar { padding-top: 30px !important; }
@@ -19,6 +20,7 @@
   <div id="app"></div>
   <script>
     window.$docsify = {
+      logo: '/images/logo.svg',
       name: 'Index',
       loadSidebar: '_sidebar.md',
       subMaxLevel: 3,
@@ -40,6 +42,11 @@
          })
        },
      ]
+    }
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js');
+      });
     }
   </script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
