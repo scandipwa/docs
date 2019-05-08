@@ -19,7 +19,7 @@ This application uses [`SASS` syntax `SCSS`](https://sass-lang.com/guide) for st
     - `component` – ReactJS components
         - `ComponentName` – Component root
             - `ComponentName.style.scss` – Component styles 
-    - `style` – Application wise styles [read more about styles](/themeStyles.md)
+    - `style` – Application wise styles [read more about styles](/theme/Styles.md)
         - `abstract` – Virtual SASS functions, mixins (non compilable) **will be injected into every component style**
             - `_abstract.scss` – File which imports all abstract functions in right order
             - `_*.scss` – Abstract functional implementations
@@ -30,7 +30,7 @@ This application uses [`SASS` syntax `SCSS`](https://sass-lang.com/guide) for st
 
 ## Styling with BEM
 
-Read more about writing SASS styles for BEM [here](/themeBEM.md)
+Read more about writing SASS styles for BEM [here](/theme/BEM.md)
 
 ## The concepts
 

@@ -3,10 +3,10 @@
 ## Project stack description:
 
 - [`React` as frontend app framework](https://reactjs.org)
-- [`Redux` as state container](/themeRedux.md)
-- [`Webpack` as build tool](/themeWebpack.md)
+- [`Redux` as state container](/theme/Redux.md)
+- [`Webpack` as build tool](/theme/Webpack.md)
 - [`SCSS` as CSS extension language](https://sass-lang.com)
-- [`BEM` methodology for style organization](/themeBEM.md)
+- [`BEM` methodology for style organization](/theme/BEM.md)
 
 ## File structure:
 
@@ -15,6 +15,7 @@
 Because this application is compiled to a valid Magento 2 theme, it must follow [Magento theme structure](https://devdocs.magento.com/guides/v2.3/frontend-dev-guide/themes/theme-structure.html).
 
 > **NOTE**: initially `Magento_Theme` folder is empty. You have to compile the application (please read [instructions for our bundler](/theme04-Webpack.md)). Or direct to (Quick start instructions)[./05-Quick-Start.md].
+> **NOTE**: initially `Magento_Theme` folder is empty. You have to compile the application (please read [instructions for our bundler](/theme/04-Webpack.md)). Or direct to (Quick start instructions)[./05-Quick-Start.md].
 
 - `etc` – _Magento 2 Theme dir_ configuration
 - `Magento_Theme` – _Magento 2 Theme dir_ Compiled assets
@@ -62,7 +63,7 @@ Because this application is compiled to a valid Magento 2 theme, it must follow 
                 - `StoreModifierName.action.js` – Modifier action declaration
                 - `index.js` – Alias file - exports _Reducer_, _Dispatcher_, _Action_.
             - `index.js` – Reducer combination, Redux initialization
-        - `style` – Application wise styles [read more about styles](/theme06-Styles.md)
+        - `style` – Application wise styles [read more about styles](/theme/06-Styles.md)
             - `abstract` – Virtual SASS functions, mixins (non compilable) **will be injected into every component style**
                 - `_abstract.scss` – File which imports all abstract functions in right order
                 - `_*.scss` – Abstract functional implementations
@@ -70,19 +71,19 @@ Because this application is compiled to a valid Magento 2 theme, it must follow 
                 - `_reset.scss` – CSS reset
                 - `_root.scss` – `:root` styles (CSS custom variables declaration)
                 - `_*.scss` – Native element style
-    - `config` – [Project configuration](/theme03-Configuration.md)
+    - `config` – [Project configuration](/theme/03-Configuration.md)
     - `public` – Files shared as is.
         - `static` – Static assets
         - `index.html` – Template for `root.phtml`.
 
 ## How to start?
 
-Read the [quick introduction](/theme02-Overview.md) to the project.
+Read the [quick introduction](/theme/02-Overview.md) to the project.
 
 ## Coding standards
 
-This project has defined [coding standard](/theme08-Standard.md).
+This project has defined [coding standard](/theme/08-Standard.md).
 
 ## Debugging
 
-Learn more about debugging in the project [here](/theme09-Debuggers.md)
+Learn more about debugging in the project [here](/theme/09-Debuggers.md)

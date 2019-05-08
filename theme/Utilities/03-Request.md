@@ -6,7 +6,7 @@ The set of helper function to communicate with BE. Located in `src/app/util/Quer
 
 Usually the GraphQL works via POST requests. We introduced persisted queries, the flow for them looks like this:
 
-1. We send the GET request to BE with query document hash and variable values. All arguments in query are variables (the [Query util](/theme02-Query.md) handles that). 
+1. We send the GET request to BE with query document hash and variable values. All arguments in query are variables (the [Query util](/theme/02-Query.md) handles that). 
 
     > At this point, if this hash is "known" at the BE (response code 200), we just get the normal response (which is cached by Varnish), request does not propagate further.
 

@@ -35,4 +35,4 @@ custom file, which simply exports babel presets and plugins (names are similar d
 
 ## Webpack
 
-Read more in [Webpack configuration](/theme04-Webpack.md)
+Read more in [Webpack configuration](/theme/04-Webpack.md)

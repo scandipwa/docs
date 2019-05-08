@@ -35,7 +35,7 @@ This component is common to see in "CMS related" components.
 
 The component is a rare place where we use third-party dependencies. We are updating website meta data using `react-helmet`. 
 
-This component is common to see in [routes](/theme10-Architecture.md) (pages) components.
+This component is common to see in [routes](/theme/10-Architecture.md) (pages) components.
 
 ### `Breadcrumbs`
 
@@ -43,7 +43,7 @@ The component is responsible for displaying breadcrumbs.
 
 > Important note: the array of routes passed has to be reversed!
 
-This component is common to see in [routes](/theme10-Architecture.md) (pages) components.
+This component is common to see in [routes](/theme/10-Architecture.md) (pages) components.
 
 ### `Image`
 
