@@ -1,0 +1,21 @@
+{
+  "name": "scandipwa-documentation",
+  "version": "1.0.1",
+  "description": "Source for docs.scandipwa.com",
+  "directories": {
+    "doc": "."
+  },
+  "dependencies": {
+    "docsify-cli": "^4.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node_modules/docsify-cli/bin/docsify serve -p 4000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scandipwa/scandipwa-base"
+  },
+  "author": "Ilja Lapkovskis, Jurijs Jegorovs",
+  "license": "OSL-3.0"
+}
