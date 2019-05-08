@@ -9,12 +9,14 @@ All about Docker environment and local setup
 
 ## Reporting issues
 
-For theme issues create a ticket here: <https://github.com/scandipwa/base-theme/issues>
-For docker related issues create ticket here: <https://github.com/scandipwa/scandipwa-base/issues>
+For theme issues create a ticket here: <https://github.com/scandipwa/base-theme/issues>  
+For docker related issues create ticket here: <https://github.com/scandipwa/scandipwa-base/issues>  
 
 Or ask in [Slack](https://scandipwa.com/#subscribe-slack) channel
 
 ## Developing docs
+
+Documentation repository <https://github.com/scandipwa/docs>
 
 Docs written in Markdown, use any editor as you like  
 **If you add new page to the docs, add it also to the `/_sidebar.md`**
