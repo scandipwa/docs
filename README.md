@@ -2,9 +2,9 @@
 
 The documentation is split in two parts:
 
-## [ScandiPWA Theme](/theme)
+## [ScandiPWA Theme](/theme/01-Project)
 All related to PWA theme and it's internal components
-## [Docker Setup](/docker)
+## [Docker Setup](/docker/01-how-to-start)
 All about Docker environment and local setup
 
 ## Reporting issues
