@@ -16,6 +16,7 @@ Or ask in [Slack](https://scandipwa.com/#subscribe-slack) channel
 
 ## Developing docs
 
+Documentation live version <https://docs.scandipwa.com>
 Documentation repository <https://github.com/scandipwa/docs>
 
 Docs written in Markdown, use any editor as you like  
