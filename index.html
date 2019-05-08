@@ -7,8 +7,12 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
   <style>
-    .sidebar { padding-top: 30px;}
-    .sidebar-toggle { top: 0; bottom: unset;}
+    .sidebar { padding-top: 30px !important; }
+    .sidebar-toggle { top: 0; bottom: unset; }
+    @media screen and (max-width: 768px) {
+      .sidebar { padding-top: 30px !important;  }
+      .sidebar-toggle { padding: 10px 30px 10px 10px; }
+    }
   </style>
 </head>
 <body>
