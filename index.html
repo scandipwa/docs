@@ -6,15 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="shortcut icon" href="/images/favicon.ico" /> 
-  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
-  <style>
-    .sidebar { padding-top: 30px !important; }
-    .sidebar-toggle { top: 0; bottom: unset; }
-    @media screen and (max-width: 768px) {
-      .sidebar { padding-top: 30px !important;  }
-      .sidebar-toggle { padding: 10px 30px 10px 10px; }
-    }
-  </style>
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css" title="Light">
+  <!-- Alternate Stylesheets -->
+  <link rel="stylesheet alternate" href="//cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css" title="Dark">
 </head>
 <body>
   <div id="app"></div>
@@ -25,9 +20,14 @@
       loadSidebar: true,
       subMaxLevel: 3,
       auto2top: true,
-      search: 'auto',
+      search: {
+        depth      : 3,
+        noData     : 'No results!',
+        placeholder: 'Search...'
+      },
       alias: {
-        '/*/_sidebar.md': '/_sidebar.md'
+        '/docker/_sidebar.md': '/_sidebar.md',
+        '/theme/_sidebar.md': '/_sidebar.md'
       },
       plugins: [
        function (hook, vm) {
@@ -52,7 +52,12 @@
       });
     }
   </script>
+  <script src="js/swicher.js"></script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+  <!-- Theme related -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-themeable@0"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code@2"></script>
+  <!-- Functions -->
   <script src="//unpkg.com/docsify/lib/plugins/emoji.min.js"></script>
   <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
   <script src="//unpkg.com/docsify/lib/plugins/zoom-image.min.js"></script>

@@ -26,5 +26,5 @@ Docs written in Markdown, use any editor as you like
 To use local preview you will need:
 
 *   Setup docsify with `npm install`
-*   Execute `npm start` in documentation project
+*   Execute `npm run serve` to start in dev mode
 *   Preview the changes on [http://localhost:4000](http://localhost:4000)

@@ -10,7 +10,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node_modules/docsify-cli/bin/docsify serve -p 4000"
+    "serve": "node_modules/docsify-cli/bin/docsify serve -p 4000",
+    "start": "node_modules/docsify-cli/bin/docsify start -p 4000"
   },
   "repository": {
     "type": "git",
