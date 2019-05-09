@@ -6,16 +6,16 @@ Application consist of many React components. Components are located in `src/app
 
 Components may be divided into following groups:
 
-- Category related: `CategoriesList`, `CategoryDetails`, `CategoryProductList`, `CategoryShoppingOptions`, `Swatch`.
+-   Category related: `CategoriesList`, `CategoryDetails`, `CategoryProductList`, `CategoryShoppingOptions`, `Swatch`.
 
-- Product related: `ProductActions`, `ProductCard`, `ProductDescription`, `ProductDetails`, `ProductGallery`, `ProductPrice`, `ProductSort`, `RelatedProducts`.
+-   Product related: `ProductActions`, `ProductCard`, `ProductDescription`, `ProductDetails`, `ProductGallery`, `ProductPrice`, `ProductSort`, `RelatedProducts`.
 
-- Cart related: `AddToCart`, `CartItem`, `CartSummary`, `DiscountCoupons`, 
-`MiniCart`.
+-   Cart related: `AddToCart`, `CartItem`, `CartSummary`, `DiscountCoupons`, 
+    `MiniCart`.
 
-- CMS related: `Footer`, `Header`, `Menu`, `NewsletterSubsribe`, `HomeSlider`.
+-   CMS related: `Footer`, `Header`, `Menu`, `NewsletterSubsribe`, `HomeSlider`.
 
-- Notification related: `Notification`, `NotificationList`.
+-   Notification related: `Notification`, `NotificationList`.
 
 There are components, which can not be grouped by a theme. They implement a specific common functional.
 
@@ -25,9 +25,9 @@ There are components, which can not be grouped by a theme. They implement a spec
 
 The component created to parse HTML coming from BE into valid React components. We use it to replace incoming HTML elements with our implementation, those are: images and links:
 
-- `<img>` – we replace to our custom [`Image`](#Image) component, to make it not load if out of viewport, define side ratio.
+-   `<img>` – we replace to our custom [`Image`](#Image) component, to make it not load if out of viewport, define side ratio.
 
-- `<a>` – we replace to `react-router-dom` `Link` components, so they push to `BrowserHistory API` and do not reload the page.
+-   `<a>` – we replace to `react-router-dom` `Link` components, so they push to `BrowserHistory API` and do not reload the page.
 
 This component is common to see in "CMS related" components.
 
@@ -49,9 +49,9 @@ This component is common to see in [routes](/theme/10-Architecture.md) (pages) c
 
 The component responsible for smooth image loading. Implements modern browser API to track image appearance in view-port, do not effect scrolling performance. Loads following images, based on `src` passed:
 
-- The placeholder (SVG primitive)
-- The WebP images (for better performance in Chromium browsers)
-- The original image (as fallback, if WebP will be unsupported)
+-   The placeholder (SVG primitive)
+-   The WebP images (for better performance in Chromium browsers)
+-   The original image (as fallback, if WebP will be unsupported)
 
 ### `Figure`
 

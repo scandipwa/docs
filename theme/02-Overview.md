@@ -4,8 +4,8 @@
 
 Before starting the project, make sure you are familiar with `React` and `Redux` basics. 
 
-1. Pay attention to [data flow diagram](/theme/05-Redux.md).
-2. Learn [application build](/theme/04-Webpack.md) details and the differences between `development` and `production` builds.
+1.  Pay attention to [data flow diagram](/theme/05-Redux.md).
+2.  Learn [application build](/theme/04-Webpack.md) details and the differences between `development` and `production` builds.
 
 ## 2. Learn application internal architecture
 

@@ -18,20 +18,20 @@ _Preferences > Languages & Frameworks > PHP > Debug_
 
 In this window chech the following settings:
 
-*   Xdebug section, set port 9111
-*   "Can accept external connections" is checked
-*   "Ignore external connections through unregistered server configurations" is checked
-*   Other settings is up to your preferences of the debugger
+-   Xdebug section, set port 9111
+-   "Can accept external connections" is checked
+-   "Ignore external connections through unregistered server configurations" is checked
+-   Other settings is up to your preferences of the debugger
 
 Now we need to set up a server configuration, to map local files to remote application container, head to:
 
-_Languages & Frameworks > PHP > Debug > Servers__
+\_Languages & Frameworks > PHP > Debug > Servers\_\_
 
-*   Add new configuration by clicking the **+** symbol
-*   Host: <localhost>
-*   Port: 3001, which is default nginx port, try to avoid using varnish port and disable varnish in magento configuration during debug sessions
-*   Debugger: Xdebug
-*   And map your local `./src/` directory to remote `/var/www/public`
+-   Add new configuration by clicking the **+** symbol
+-   Host: <localhost>
+-   Port: 3001, which is default nginx port, try to avoid using varnish port and disable varnish in magento configuration during debug sessions
+-   Debugger: Xdebug
+-   And map your local `./src/` directory to remote `/var/www/public`
 
 ### Setting up IP alias
 

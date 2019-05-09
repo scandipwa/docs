@@ -23,9 +23,9 @@ During container build you might need to execute indide it, but due to errors it
 
 Here is how to override it:
 
-*   Stop app container
-  `docker-compose stop app`
-*   Execute the app container `docker run -it -e COMPOSER_AUTH --entrypoint /bin/bash APP_CONTAINER_NAME`
+-   Stop app container
+    `docker-compose stop app`
+-   Execute the app container `docker run -it -e COMPOSER_AUTH --entrypoint /bin/bash APP_CONTAINER_NAME`
 
 ## Logging
 

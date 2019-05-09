@@ -17,7 +17,7 @@ componentDidMount() {
 
 ## Destructure `props` and `state` before using data
 
-You must not refer `this.props` and `this.states` directly except for *destructuring*. 
+You must not refer `this.props` and `this.states` directly except for _destructuring_. 
 Simple use desctructuring assignment in the beginning of the function, in example:
 
 ```javascript
@@ -30,7 +30,7 @@ render() {
 }
 ```
 
-## Do not interact with  `document` elements directly 
+## Do not interact with  `document` elements directly
 
 ReactJS must track components, while using `document` to reference and later change 
 DOM nodes prevents ReactJS normal flow.
@@ -72,11 +72,11 @@ componentDidMount() {
 }
 ```
 
-## Use _ for "private" functions
+## Use \_ for "private" functions
 
-When importing class your IDE or code editor might help you with auto-completion. For private (internal) function not appearing in the top of suggestion list we recommend using _ notation for method names.  
+When importing class your IDE or code editor might help you with auto-completion. For private (internal) function not appearing in the top of suggestion list we recommend using \_ notation for method names.  
 
-> There is a mix of these _ notated and non _ notated functions at the moment. We plan to migrate to _ notation completely in future release.
+> There is a mix of these _ notated and non _ notated functions at the moment. We plan to migrate to \_ notation completely in future release.
 
 ```javascript
 /**
@@ -101,5 +101,3 @@ getQuery(options) {
     ...
 }
 ```
-
-

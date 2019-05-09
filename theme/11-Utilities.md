@@ -14,12 +14,12 @@ The helper for working with data (requesting, listening for broadcast). [See ful
 
 ## Other utilities
 
-- `Promise` – the cancelable promise functional.
+-   `Promise` – the cancelable promise functional.
 
-- `Price` – the price calculation from product.
+-   `Price` – the price calculation from product.
 
-- `Images` – the WebP support check.
+-   `Images` – the WebP support check.
 
-- `CSS` – the CSS custom property setter to React referenced components.
+-   `CSS` – the CSS custom property setter to React referenced components.
 
-- `BrowserDatabase` – the Browser Database manager, currently uses localhost, will be migrated to IndexedDB.
+-   `BrowserDatabase` – the Browser Database manager, currently uses localhost, will be migrated to IndexedDB.

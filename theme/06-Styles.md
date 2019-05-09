@@ -4,29 +4,29 @@ This application uses [`SASS` syntax `SCSS`](https://sass-lang.com/guide) for st
 
 ## Important notes
 
-1. We recommend declaring custom color variables for every new component in root block, so they can be changed easily. However this is not done properly now. You may be surprised seeing `var(--color-breadcrumbs-background);` used in completely unrelated to breadcrumbs places.
+1.  We recommend declaring custom color variables for every new component in root block, so they can be changed easily. However this is not done properly now. You may be surprised seeing `var(--color-breadcrumbs-background);` used in completely unrelated to breadcrumbs places.
     > We plan to restructure variable declaration in nearest releases. 
-2. We recommend to keep the nesting as low as possible. But due pure CSS implementation of some features, the nesting may grow huge. For example, the largest nesting level is in menu: `.Menu_isActive .Menu-Item_d_0:first-child:focus-within > .Menu-Wrapper` (the nesting of 3 elements, and specificity of 50). 
+2.  We recommend to keep the nesting as low as possible. But due pure CSS implementation of some features, the nesting may grow huge. For example, the largest nesting level is in menu: `.Menu_isActive .Menu-Item_d_0:first-child:focus-within > .Menu-Wrapper` (the nesting of 3 elements, and specificity of 50). 
     > Try keep **styles are bellow 30 specificity points** for better performance.
-3. We recommend not using outdated css properties like `float`. However they are still present in small amount in our application (3 times). 
+3.  We recommend not using outdated css properties like `float`. However they are still present in small amount in our application (3 times). 
     > The outdated CSS properties will be removed in future releases.
-4. We have not properly tested the application in non-chromium based browsers. 
+4.  We have not properly tested the application in non-chromium based browsers. 
     > The browser support will be extended in the future.
 
 ## File Structure
 
-- `src`
-    - `component` – ReactJS components
-        - `ComponentName` – Component root
-            - `ComponentName.style.scss` – Component styles 
-    - `style` – Application wise styles [read more about styles](/theme/Styles.md)
-        - `abstract` – Virtual SASS functions, mixins (non compilable) **will be injected into every component style**
-            - `_abstract.scss` – File which imports all abstract functions in right order
-            - `_*.scss` – Abstract functional implementations
-        - `base` – Styles to native HTML5 elements
-            - `_reset.scss` – CSS reset
-            - `_root.scss` – `:root` styles (CSS custom variables declaration)
-            - `_*.scss` – Native element style
+-   `src`
+    -   `component` – ReactJS components
+        -   `ComponentName` – Component root
+            -   `ComponentName.style.scss` – Component styles 
+    -   `style` – Application wise styles [read more about styles](/theme/Styles.md)
+        -   `abstract` – Virtual SASS functions, mixins (non compilable) **will be injected into every component style**
+            -   `_abstract.scss` – File which imports all abstract functions in right order
+            -   `_*.scss` – Abstract functional implementations
+        -   `base` – Styles to native HTML5 elements
+            -   `_reset.scss` – CSS reset
+            -   `_root.scss` – `:root` styles (CSS custom variables declaration)
+            -   `_*.scss` – Native element style
 
 ## Styling with BEM
 
@@ -128,14 +128,12 @@ In you component styles `ComponentName.style.scss` the functions declared in `_a
 
 For easier styling for different device screens we have included media mixins out of the box. They are applied in following order:
 
-```
-                  0                       768px                   1024px                  +∞    
-desktop           |                       |                       █████████████████████████
-before-desktop    ████████████████████████████████████████████████|                       |
-tablet            |                       ████████████████████████|                       |
-after-mobile      |                       █████████████████████████████████████████████████
-mobile            ████████████████████████|                       |                       |
-```
+                      0                       768px                   1024px                  +∞    
+    desktop           |                       |                       █████████████████████████
+    before-desktop    ████████████████████████████████████████████████|                       |
+    tablet            |                       ████████████████████████|                       |
+    after-mobile      |                       █████████████████████████████████████████████████
+    mobile            ████████████████████████|                       |                       |
 
 In order to use them:
 

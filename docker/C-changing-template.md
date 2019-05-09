@@ -1,4 +1,5 @@
 # Changing variables
+
 All service versions are stored and taken from variables, independently configurable for each environment.
 For global changes in services (enable, disable, add), you should edit `docker-compose.yml`.
 
@@ -20,9 +21,8 @@ This set of parameters are used in application and service runtime, couple of th
 
 When those settings are changed, you need to recreate the needed container.
 
+#### Reference
 
-
-#### Reference  
 <https://vsupalov.com/docker-arg-env-variable-guide/> - complete guide and description about ARG/ENV usage in docker/docker-compose
 <https://docs.docker.com/compose/compose-file/> - full docker-compose.yml reference
 <https://docs.docker.com/compose/env-file/> - docker-compose .env usage

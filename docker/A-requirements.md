@@ -2,26 +2,28 @@
 
 The list of requirements that must be fulfilled in order to run Docker-based infrastracture:
 
-### Docker CE or Docker for Mac CE (latest) must be installed. 
+### Docker CE or Docker for Mac CE (latest) must be installed.
 
 `docker -v`
 
-### Docker-compose (latest) 
+### Docker-compose (latest)
 
 `docker-compose -v`
 
 ### Generated keys for Magento 2 repository
-1. Login/register using [Magento2 Marketplace](https://account.magento.com/applications/customer/login/)
 
-2. Go to: My profile
+1.  Login/register using [Magento2 Marketplace](https://account.magento.com/applications/customer/login/)
 
-3. Go to: Access keys
+2.  Go to: My profile
 
-4. Create/copy existing key details
+3.  Go to: Access keys
 
-Use *public key* for username and *private key* for password fields when setting COMPOSER_AUTH parameters.
+4.  Create/copy existing key details
+
+Use _public key_ for username and _private key_ for password fields when setting COMPOSER_AUTH parameters.
 
 ### Valid SSL certificate
+
 In order to use all features, especially serviceworker, you must have a valid SSL certificate present on the server, 
 if your domain name is different from `localhost`. For more details how to set it up for development environment 
 please refer to [Development environment](/docker/E-development-environment.md) section.

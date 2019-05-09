@@ -52,11 +52,9 @@ console.log(query._name)
 
 Results into:
 
-```
-'user'
+    'user'
 
-'user'
-```
+    'user'
 
 <hr />
 
@@ -87,29 +85,27 @@ console.log(query._fieldList)
 
 Results into:
 
-```
-'user{ firstName, favoritePosts{ title, url } }'
+    'user{ firstName, favoritePosts{ title, url } }'
 
-{
-    firstName: {
-        _fieldList: {},
-        _name: "firstName"
-    },
-    favoritePosts: {
-        _name: "favoritePosts",
-        _fieldList: {
-          title: {
-              _fieldList: {},
-              _name: "title" 
-          }, 
-          url: {
-              _fieldList: {},
-              _name: "url" 
-          }
+    {
+        firstName: {
+            _fieldList: {},
+            _name: "firstName"
+        },
+        favoritePosts: {
+            _name: "favoritePosts",
+            _fieldList: {
+              title: {
+                  _fieldList: {},
+                  _name: "title" 
+              }, 
+              url: {
+                  _fieldList: {},
+                  _name: "url" 
+              }
+            }
         }
     }
-}
-```
 
 <hr />
 
@@ -133,29 +129,27 @@ console.log(query._fieldList)
 
 Results into:
 
-```
-'user{ firstName, favoritePosts{ title, url } }'
+    'user{ firstName, favoritePosts{ title, url } }'
 
-{
-    firstName: {
-        _fieldList: {},
-        _name: "firstName"
-    },
-    favoritePosts: {
-        _name: "favoritePosts",
-        _fieldList: {
-          title: {
-              _fieldList: {},
-              _name: "title" 
-          }, 
-          url: {
-              _fieldList: {},
-              _name: "url" 
-          }
+    {
+        firstName: {
+            _fieldList: {},
+            _name: "firstName"
+        },
+        favoritePosts: {
+            _name: "favoritePosts",
+            _fieldList: {
+              title: {
+                  _fieldList: {},
+                  _name: "title" 
+              }, 
+              url: {
+                  _fieldList: {},
+                  _name: "url" 
+              }
+            }
         }
     }
-}
-```
 
 <hr />
 
@@ -176,9 +170,7 @@ console.log(query._argumentList)
 
 Results into:
 
-```
-'user(id:$_id){ firstName }'
-```
+    'user(id:$_id){ firstName }'
 
 ```js
 {
@@ -271,6 +263,6 @@ The usual flow to get just a string looks like: `query.build().toString()`. But 
 
 This function build everything related to arguments in query. It prepares three objects:
 
-- variableDefinitions `['$_id: ID!']`
-- querySelections `['user(id:$_id){ firstName }']`
-- variableAssignments `{ id: 56778 }`
+-   variableDefinitions `['$_id: ID!']`
+-   querySelections `['user(id:$_id){ firstName }']`
+-   variableAssignments `{ id: 56778 }`

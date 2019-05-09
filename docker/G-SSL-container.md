@@ -42,12 +42,12 @@ Keep in mind you must add corresponding records to your `/etc/hosts` yourself.
 ### MacOS
 
 You might be prompted for an admin password for a few times during this steps:  
-1\. Add certificate `opt/cert/scandipwa-ca.pem` to your `Keychain`  
-2\. Double click on `ScandiPWA CA`  
-3\. Unfold `Trust` section  
-4\. Set _When using this certificate_ -> **Always trust**  
-5\. Restart you machine  
-6\. Add one more file (`-f docker-compose.ssl.yml`) to you docker-compose command  
+1. Add certificate `opt/cert/scandipwa-ca.pem` to your `Keychain`  
+2. Double click on `ScandiPWA CA`  
+3. Unfold `Trust` section  
+4. Set _When using this certificate_ -> **Always trust**  
+5. Restart you machine  
+6. Add one more file (`-f docker-compose.ssl.yml`) to you docker-compose command  
 
 ### Firefox
 
