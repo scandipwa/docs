@@ -52,13 +52,5 @@ Prepares the environment, according to defined parameters in .env and .applicati
 * copy source code from `./src` to `$BASEPATH` (defined in .env)
 * php config copying
 * helper tool installation
-* running bootstrap.sh helper script (please see details below)
+* install core dependencies, such as nodejs with npm, composer, ruby.
 * preparing start.sh script for running (please refer to next section of the Docs)
-
-## Bootstrap.sh
-The main task of bootstrap.sh helper script is version control of additional tools.
-Versions are defined in `.env` file symlinked to the `root folder` of the Docker-infrastructure.
-
-Currently available for configuration binaries:
-* Composer
-* NodeJS

@@ -41,7 +41,7 @@ behavior for ALL environments.
  ## /deploy folder
  Deploy folder is holding all configurations there are necessary to build/run the containers:
  * ENVVAR sets (`deployment`, `local`, `staging`. **More can be added easily!**),
- * helper shell scripts: `bootstrap.sh`, `entrypoint.sh`, `wait-for-it.sh`
+ * helper shell scripts: `entrypoint.sh`, `wait-for-it.sh`
  * service configs: `shared/conf/nginx`, `shared/conf/php`, `shared/conf/varnish`
 
 ## /frontend
