@@ -1,4 +1,4 @@
-## ScandiPWA infrastructure diffecrence
+## ScandiPWA infrastructure differences
 
 ScandiPWA has additional requirements to the Magento stack and has some requirements:
 
