@@ -42,6 +42,11 @@ All about Docker environment and local setup
 	<iframe src="https://www.youtube.com/embed/MyMwFMr2Dns" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
+### Theme customization (overrides)
+<div class="video">
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/ukBQpajluXg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
 ## Reporting issues
 
 For theme issues create a ticket here: <https://github.com/scandipwa/base-theme/issues>  
