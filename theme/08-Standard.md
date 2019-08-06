@@ -3,34 +3,36 @@
 - [ScandiPWA coding standards](#scandipwa-coding-standards)
   * [Stylesheets (SCSS)](#stylesheets-scss)
     + [1. Mixin nesting](#1-mixin-nesting)
-    + [2. Color organization](#2-color-organization)
-    + [3. Selector and function sorting](#3-selector-and-function-sorting)
-    + [4. Selector nesting escaping](#4-selector-nesting-escaping)
+    + [2. Color palette (color organization)](#2-color-palette-color-definition)
+    + [3. Selectors, mixins and functions](#3-selectors-mixins-and-functions)
+    + [4. Nesting](#4-nesting)
     + [5. Value optimization](#5-value-optimization)
-    + [6. Use of rem / em / px](#6-use-of-rem--em--px)
-    + [7. Important rule escaping](#7-important-rule-escaping)
+    + [6. Use of rem / em / px](#6-make-a-use-of-rem-em-px)
+    + [7. Avoid !important](#7-avoid-important)
     + [8. No fixed heights / width](#8-no-fixed-heights--width)
     + [9. Stop specifying default property values](#9-stop-specifying-default-property-values)
   * [Overall](#overall)
-    + [1. Not visual loading](#1-not-visual-loading)
-    + [2. Reduce your data to useful format](#2-reduce-your-data-to-useful-format)
+    + [1. Data loading](#1-data-loading)
+    + [2. Effective data processing](#2-effective-data-processing)
   * [JavaScript](#javascript)
     + [1. Make it a habit not to reassign variables.](#1-make-it-a-habit-not-to-reassign-variables)
     + [2. Destructurize data](#2-destructurize-data)
-    + [2. Don't overuse &&](#2-dont-overuse-)
-    + [3. Escape dynamic function creating](#3-escape-dynamic-function-creating)
-    + [5. Utilize more effective array functions](#5-utilize-more-effective-array-functions)
-    + [6. Return imidiatelly](#6-return-imidiatelly)
-    + [7. Remember, that variables may have any name](#7-remember-that-variables-may-have-any-name)
-    + [8. No multiple state-updates at once](#8-no-multiple-state-updates-at-once)
-    + [9. No complex conditional rendering](#9-no-complex-conditional-rendering)
-    + [10. Don't place redundant JSX tags](#10-dont-place-redundant-jsx-tags)
+    + [3. Don't overuse &&](#3-dont-overuse-)
+    + [4. Context](#4-context)
+    + [5. Use specific functions](#5-use-specific-functions)
+    + [6. Return early](#6-return-early)
+    + [7. Variable naming](#7-variable-naming)
+    + [8. Group-up multiple state updates](#8-group-up-multiple-state-updates)
+    + [9. Decoupling](#9-decoupling)
+    + [10. Keep your code clean](#10-keep-the-code-clean)
 
 ## Stylesheets (SCSS)
 
 ### 1. Mixin nesting
 
-When writing media queries, the `mobile`, `desktop` mixins are commonly used. The proper way, to organize them, is to write selectors outside mixin and keep only properties in.
+When writing media queries, the `mobile`, `desktop` mixins are commonly used. The proper way, to organize them, is to write selectors outside mixin and keep only properties in. 
+
+This allows to keep all the properties organized for a selector, as you change the appearance of the selector within your media query (change it's property), so keep only properties changing. Additionally, this allows for easy control (add / remove) of properties and other media mixins to the selectors.
 
 #### For example:
 
@@ -52,13 +54,13 @@ When writing media queries, the `mobile`, `desktop` mixins are commonly used. Th
 }
 ```
 
-#### Why?
 
-Because this allows to keep all the properties organized to a selector. Because logically, you change the appearance of the selector on your media query (change it's property), so keep only properties changing. Additionally, this allows for easy addition / removal of properties and other media mixins to the selector in future.
+### 2. Color palette (color definition)
 
-### 2. Color organization
+CSS variables must be used for color definitions for ScandiPWA.
+It provides ability for modern and easy color-scheme manipulation and brings an option of color dynamic adjustment. The colors for a component must be specified in `:root` element, the colors itself, should be moved out into `variables.scss` file.
 
-The CSS variable based coloring is advised on ScandiPWA based solutions. Why? Becuase it allows for easy color-scheme manipulation and brings an option of color dynamic adjustment. The colors for a component must be specified in `:root` element, the colors itself, might be moved out into `variables` file.
+Used colors should be specific to a component, they may share the same color, but must be distinct in order to be easily adjusted in the future, this makes your styles more flexible.
 
 #### For example:
 
@@ -81,13 +83,15 @@ $slate-grey: #708090;
 }
 ```
 
-#### Why?
 
-The colors should have a common name throughout the project, for easier reference, it is recommended to declare SCSS variables in `variables` file. The used colors should be specific to a component, they may share the same color, but must be distinct in order to be easily adjusted in the future, this makes your styles more flexible.
+### 3. Selectors, mixins and functions
 
-### 3. Selector and function sorting
+Complex styles commonly require multiple pseudo-classes, pseudo-elements, media queries, properties, selector-build-ups. Order matters a lot, as good organization helps to keep it trackable and easily readable.
 
-The complex styles commonly require multiple pseudo-classes, pseudo-elements, media queries, properties, selector-build-ups, it is important to write them in correct order to keep everything trackable.
+1) Non-content based mixin has to be defined on top, in order to be rewritten with properties later
+2) Variables must be declared before these are used (according to specs)
+3) Pseudo-classes and pseudo-elements must not be mixed together
+4) Element and modifier definitions must be above other definitions (i.e. element definition)
 
 #### For example:
 
@@ -112,7 +116,7 @@ The complex styles commonly require multiple pseudo-classes, pseudo-elements, me
     }
   
     &_active {
-				// ...
+        // Styles applied when element is active
     }
 
     &-Image {
@@ -125,13 +129,11 @@ The complex styles commonly require multiple pseudo-classes, pseudo-elements, me
 }
 ```
 
-#### Why?
 
-Sorting selectors, functions and properties is important for consistency and correct work of stylesheets. Why? For example, the non-content based mixin has to be defined on top in order to be rewritten with properties later. The CSS variables must be declared before they are used, otherwise they won't work. The pseudo-classes and pseudo-elements must be divided and not mixed together, classes should go above, becuase those selectors are tightly related to element.
+### 4. Nesting
 
-### 4. Selector nesting escaping
-
-The deeper selector, the harder it is for a CSSOM to calculate and draw. The ideal selectors are all the same weight. In our case, we are using BEM, which allows for 010 consitent depth throughout the project.
+ScandiPWA follows BEM CSS organization methodology, that provides convenience, ease and good effectivity of the project styles.
+Each nested selector increase the "weight" of rules, making it harder and harder to override. You can learn more about "weight" or specificy approach: https://css-tricks.com/specifics-on-css-specificity/ 
 
 #### For example:
 
@@ -139,31 +141,36 @@ The deeper selector, the harder it is for a CSSOM to calculate and draw. The ide
 // Source code
 .Component {
   &-Wrapper {
-    // ...
+    // Element properties
     
     &_wide {
-      // ...
+      // Modifier properties
     }
   }
 }
 
 // Compiled code
 .Component-Wrapper {
-  // ...
+  // Element properties
 }
 
 .Component-Wrapper_wide {
-  // ...
+  // Modifier properties
 }
 ```
 
-#### Why?
-
-As stated above less deep selectors allow for quick paints. This also allows for easy navigation within a file, and easier reading.
-
 ### 5. Value optimization
+All values must be rounded to integer pixel values, or the pixels should be used when possible.
+The values of CSS properites should never reference decimal values under a pixel, as it is impossible to draw less then 1px (if it is not a clip path!).
 
-The values of CSS properites should never reference decemal values lower then a pixel. So, all values shoud be rounded to full pixels, or if impossible to round, the pixels themselfs should be used. Also, the values like 23px must be rounded to 5px, why? Becuase this allows for easy reading. The reccomened stops are 5px for content-full elements and 1px for simple elements. Remember, that 0 is redundant.
+Also, the values like 23px must be rounded to each 5px that improves readability. The reccomened stops are 5px for content-full elements and 1px for simple elements.
+
+`0` in front of values lower than `1` is redundant:
+- correct: `.25`
+- wrong: `0.25`
+
+> Whether element height has a float `px` value instead of integer - it has one pixel border, it might not be rendered, as it's location is in between the pixel grid of a website, similarly the 2px border, might become 1px. The vertically aligned elements are often affected by non-rounded values, for example the position of second element might be offset. A lot of issues might be potentially caused by non-rounded values – avoid using them!
+
 
 #### For example:
 
@@ -185,13 +192,13 @@ line-height: 1.5;
 color: rgba(45, 234, 89, .45);
 ```
 
-#### Why?
+### 6. Make a use of rem / em / px
 
-It is impossible to draw less then 1px (if it is not a clip path!). This means, if element height is not a rounded `px` value and it has one pixel border, it might not rendered, as it's location is in between the pixel grid of a website, similarly the 2px border, might become 1px. The vertically aligned elements are often affected by non-rounded values, for example the position of second element might be offset. A lot of issues might be potentially caused by non-rounded values – escape them!
+Using `em` and `rem` are often misleading: they are dynamic and you often don't know what value it contains. To make it clear:
+- `rem` is the **body** font-size based unit
+- `em` is the **parent** element font-size based unit
 
-### 6. Use of rem / em / px
-
-As mentioned in 5) the rouded values are very important. However, using `em` and `rem` are very misleading –  they are dynamic and you often don't know what value it contains. To make it clear `rem` is the body-font-size-based unit, while `em` is based on a parent element font-size. There is only two rules – make sure you are using values that can be rounded to a full pixel and you understand why, you are using `rem` or `em` – most commonly for text distribution.
+> There are only two rules – make sure you are using values that can be rounded to a full pixel. Make sure you have a reason to use `rem` or `em`. In general, most common use case for any of these to be used is text distribution.
 
 #### For example:
 
@@ -210,13 +217,12 @@ left: 28px;
 padding-left: 1rem;
 ```
 
-#### Why?
+### 7. Avoid !important
+You must not use `!important`.
 
-As stated in 5) due rendering issues. But, any use of specific unit should be logicaly explainable. The `em` or `rem` means, that the usecase must be somehow related to font-size. So, use them in places related to text.
+> Important is the most powerful form of CSS selector strength rules, it overrides id, class, name, everything. It is very commonly used to override inline-styled elements, but brings inconsistency.
 
-### 7. Important rule escaping
-
-Important is the most powerful form of CSS selector strength rules, it bypasses id, class, name, everything. It is very commonly used to override inline-styled elements. We must escape it to have our code supportable.
+> It is much better to use third parties, that escape direct styling, by for example using custom stylesheets and applying CSS custom variables.
 
 #### For example:
 
@@ -232,37 +238,43 @@ Important is the most powerful form of CSS selector strength rules, it bypasses 
 // in custom defined elements / stylesheets.
 ```
 
-#### Why?
-
-Becuase it is impossible to override, it makes styles incosistent. It is much better to use third parties, that escape direct styling, by for example using custom stylesheets and applying CSS custom variables.
-
 ### 8. No fixed heights / width
+You must not define width / height fixed size.
+The recommeded way to define styles is by using `box-sizing: border-box` along with padding to define element's height.
 
-When styling it is easy to define a height once, and keep it consistent, however, the assumption, that content will always be the same, and designs won't change is weak. The recommeded way to approach styling is by using `box-sizing: border-box` along with padding to define element's height. In order to achive the effective behaviour of the element when loading use `min-height` .
+> This prevents from applying custom style to the element, breaks `flex` if element is involved in it, and overall complicate styling. It is easy to assume and follow the assumption content size will never change, however such asumption is wrong.
+
+> When styling it is easy to define a height once, and keep it consistent, however, the assumption, that content will always be the same, and designs won't change is weak.  In order to achive the effective behaviour of the element when loading use `min-height` .
+
+
 
 #### For example:
 
 ```scss
 // Wrong
 .ProductName {
-		height: 20px;
-  	margin: 1rem;
+    height: 20px;
+    margin: 1rem;
 }
 
 // Correct
 .ProductName {
-		min-height: 20px;
-  	margin: 1rem;
+    min-height: 20px;
+    margin: 1rem;
 }
 ```
 
 #### Why?
 
-Because this prevents from applying custom style to the element, breaks `flex` if element is involved in it, and overall complicate styling.
 
-### 9. Stop specifying default property values
 
-When working with apps Zeplin, developers are tend to copy whole stylesheet, instead of retriving only the specific values. Then, the `font-style: normal;` or `font-weight: normal;` appears in code. Those values are mostly the defaults (which might be disabled in case of Zeplin), make sure you are not supplying them.
+### 9. Skip unnecessary definitions
+
+It often happens, that default values are defined multiple times, i.e. `font-style: normal;` or `font-weight: normal;`, especially, when styles are based on apps like Zeplin.
+
+Define only necessary properties, skipping all default (defined as default) properties.
+
+Never rely on browser defaults, it differs from browser to browser. Use `reset.scss` for unifying default styles.
 
 #### For example:
 
@@ -278,17 +290,16 @@ font-size: 15px;
 font-weight: 300;
 ```
 
-#### Why?
-
-Because they are redundant and just makes stylesheets more complex.
-
-
 
 ## Overall
 
-### 1. Not visual loading
+### 1. Data loading
 
-When loading a data to be displayed, we must display placeholders if this data will present on a page. Why? Becuase then, from placeholders we quickly jump into loaded state, without breaking the layout, so transition from loading to loaded is seemless. Please do not use conditional rendering to showcase this, implement it using early returns and test, test, test!
+When loading a data, we must display placeholders for the data that is a part of a page (layout). 
+
+> Placeholders are great for filling the layout while we are waiting for the data, provides suggestions about the content size or type and improve webpage UX. Do not use conditional rendering to showcase this, implement it using early returns and test, test, test!
+
+> In perfect condition, if you have not yet recieved a data to be rendered, you must already render the full element structure, but with placeholders inside, this way, after data will be recived, there will be no complex re-renders, just places were placeholders were – this eliminates page blinking.
 
 #### For example:
 
@@ -315,11 +326,7 @@ class ProductPrice extends Component {
 }
 ```
 
-#### Why?
-
-In perfect condition, if you have not yet recieved a data to be rendered, you must already render the full element structure, but with placeholders inside, this way, after data will be recived, there will be no complex re-renders, just places were placeholders were – this eliminates page blinking.
-
-### 2. Reduce your data to useful format
+### 2. Effective data processing
 
 The data we are working with is often not in the format we expect it to be. It is commonly array, where we need order object, it is often organized by wrong property, etc. Make suer you are preparing your data well in your reducer or container.
 
@@ -359,15 +366,17 @@ return {
 };
 ```
 
-#### Why?
-
-Becuase data is often used in multiple places, so preparing it once, instead opf looping though each time is essential to performance.
-
 ## JavaScript
 
-### 1. Make it a habit not to reassign variables.
+### 1. Do not reassign variables
 
-In a paradigm of functional programming, you should never reassign values to variables. The functions must follow Maths way – if a is passed, the value should be returned, the passed value should never be changed or redefined.
+You must not reasign variable values, because:
+- you may change the external state by an accident
+- code complexity is growing
+
+> In a paradigm of functional programming, you should never reassign values to variables. The functions must follow Maths way – if `a` is passed, the value should be returned, the passed value should never be changed or redefined, as in in most common scenarios:
+
+> Read the [great article](<https://zellwk.com/blog/dont-reassign/>) about this!
 
 #### For example:
 
@@ -381,20 +390,19 @@ if (today === 'Monday') {
   hair = 'something else'
 }
 
-// Great
+// Good
 const hair = today === 'Monday' ? 'bangs' : 'something else';
 ```
 
-#### Why?
+### 2. Destructure data
+You must destruct props / states in the beginning of the method / function. 
+You must not pass descructured data between methods, if fields can be desctructured independently.
 
-- Becuase you may change the external state by accident when you reassign value
-- You are creating a more complex code, when doing this
-
-Read the [great article](<https://zellwk.com/blog/dont-reassign/>) about this!
-
-### 2. Destructurize data
-
-The dot notation is great, but when used a lot, becomes hard to maintain. It is much better pratice to separate objects to smaller parts – destructurizing them into variables.
+> Reduce complexity and improve readability, brings clear dependency on the data you are processing:
+> - Allows for easy reading of what is going on in the code
+> - Allows for easy default value declaration, without modifying the inital data source
+> - Allows for varaiable name aliasing
+> The dot notation is great, but when used a lot it brings inconvenience. It is much better pratice to separate objects to smaller parts – destructurizing them into variables.
 
 #### For example:
 
@@ -414,15 +422,7 @@ const { product: { minPrice = 0, maxPrice = 0 } } = this.props
 return minPrice < maxPrice ? minPrice : maxPrice;
 ```
 
-#### Why?
-
-- Allows for easy reading of what is going on in the code
-- Allows for easy default value declaration, without modifying the inital data source
-- Allows for varaiable name aliasing
-
-### 2. Don't overuse &&
-
-It is know for a long time, that `&&` in javascript returns a last element if expression is true. But, the use of this behaviour leads to complex code structures which are hard to support.
+### 3. Don't overuse &&
 
 #### For example:
 
@@ -442,13 +442,9 @@ const [{ name }] = products;
 return <h2>{ name }</h2>;
 ```
 
-#### Why?
+### 4. Context
 
-Because it is much better to deligate an addition function to handle your checks, rather to rely on wierd mechanics. Also, escaping `&&` allows for cleaner code, and more extendable functions.
-
-### 3. Escape dynamic function creating
-
-Using arrow functions is great, but they must be created in runtime. We must escape this behaviour by binding them to component context. There is also an option to declare them as arrow functions initially, but it is not recommend, as we would like to stay consistent thoughout the project (in terms of function declarations).
+Using arrow functions is great, but they must be created in runtime. You must avoid this behaviour by binding them to component context. There is also an option to declare them as arrow functions initially, but it is not recommend, as we would like to stay consistent thoughout the project (in terms of function declarations).
 
 #### For example:
 
@@ -480,13 +476,9 @@ class MyComponent extends Component {
 }
 ```
 
-#### Why?
-
-Becuase we would like not to sacrifise any time while rendering. Slow renders are very destructive to an application, and lead to bad user expirience.
-
-### 5. Utilize more effective array functions
-
-If you follow 1) you are familiar with escaping `var` and `let`. But, if working with object or array you may use const, while still re-declaring values. Escape it, think about it in the same way as 1) – remember, the `forEach` is just a loop-through, the `map`, `reduce`, `filter`, `find` (and others!) exist and are more suitable for common purposes.
+### 5. Use specific functions
+You must avoid re-declaring values.
+You should use  `map`, `reduce`, `filter`, `find` (and others!) over Array.forEach().
 
 #### For example:
 
@@ -515,71 +507,57 @@ return stores.reduce((cityStores, store) => {
 }, {});
 ```
 
-#### Why?
+### 6. Return early
 
-Because as described in 1) the propery re-declarations are ineffective. Use of suitable functions allow for less loops, and code in general.
-
-### 6. Return imidiatelly
-
-Why to bother with additional checks if we can return imidiatelly?
+You must use early returns.
 
 #### For example:
 
 ```js
 // Bad
-function getHairType (today) {
-  let hair
+function doSomething(argument) {
+    if (argument) {
+        // many lines of code
+        return something;
+    }
 
-  if (today === 'Monday') {
-    hair = 'bangs'
-  } else if (today === 'Tuesday') {
-    hair = 'braids'
-  } else if (today === 'Wednesday') {
-    hair = 'short hair'
-  } else if (today === 'Thursday') {
-    hair = 'long hair'
-  } else if (today === 'Friday') {
-    hair = 'bright pink hair'
-  }
-
-  return hair
+    return false
 }
 
-// Good (switch may be used as well, but in terms of example)
-function getHairType (today) {
-  if (today === 'Monday') return 'bangs'
-  if (today === 'Tuesday') return 'braids'
-  if (today === 'Wednesday') return 'short hair'
-  if (today === 'Thursday') return 'long hair'
-  if (today === 'Friday') return 'bright pink hair'
+// Good
+function doSomething(argument) {
+    if (!argument) {
+        return false;
+    }
+    // many lines of code
+
+    return something;
 }
 ```
 
-#### Why?
+### 7. Variable naming
 
-Becuase this is cleaner and makes code much more readable and flat. Any complex structures make code less and less readable.
-
-### 7. Remember, that variables may have any name
-
-If you have a place where one variable name will be conviniet, and your variable is coming from a function parameter, do not hesitate and name it like you need imidiatelly. It is strange to see abstarct variable names like `value`, which does not represent anything.
+If you have a place where one variable name will be convenient, and your variable is coming from a function parameter, do not hesitate and name it like you need imidiatelly. It is strange to see abstarct variable names like `value`, which does not represent anything.
 
 #### For example:
 
 ```js
-// Unpreferable
-<input onChange={ value => this.setState({ name: value }) } />
+// Unpreferable, rename occurs
+<input onChange={ value => this.setState({ name: value }) } /> // value
 
-// Prefered
-<input onChange={ name => this.setState({ name }) } />
+// Prefered, rename does not happen
+<input onChange={ name => this.setState({ name }) } /> // name
+
+// Prefered, complex item, rename occurs
+<input onChange={ name => this.setState({ item: { name: itemName }, user: { name: userName } }) } /> // itemName, userName
 ```
 
-#### Why?
 
-First-of-all, it makes sense, becuase we are directly naming an entity we are working with. Secondly, we are writing less code.
+### 8. Group-up multiple state updates
 
-### 8. No multiple state-updates at once
+When implementing your own `dispatcher` classes you might see places, where stumble across a place where multiple `dispatch` functions are called. You must join them into one action dispatch. 
 
-When implementing your own `dispatcher` classes you might see places, where stumble across a place where multiple `dispatch` functions are called. We must join them into one action dispatch. 
+> When not merged together, it will become hard to track. On global state update, the component will update multiple times, so tracking previous props in `static getDerivedStateFromProps` will not be easily achievable. Also, the rendering might happen more than one time, that might cause some lag noticeable lag.
 
 #### For example:
 
@@ -593,13 +571,14 @@ dispatch(updateCategoryFilters(products));
 dispatch(updateProductsAndCategory(products);
 ```
 
-#### Why?
+### 9. Decoupling
 
-Becuase, if not merged together, it will be hard to track from listening component – on global state update, the component will update multiple times, so tracking previous props in `static getDerivedStateFromProps` will not be easily achievable. Also, the rendering might happen more than one time => some lag might be noticable. 
+When implementing a react render method, the JSX is typed, it supports a conditional rendering wrapped within `{ ... }`. This feature is often over-used by developers, which result in very clunky, big render methods.
 
-### 9. No complex conditional rendering
-
-When implementing a react render method, the JSX is typed, it supports a conditional rendering by writing in `{ ... }`. This feature commonly over-used by developers, which result in very clunky, big render methods.
+> Decoupling, or, if we rephrase, Dividing complex, conditional renders in to smallerfunctions, makes it:
+> - More extendable
+> - More readable
+> - Allows for easy additional checks
 
 #### For example:
 
@@ -652,6 +631,7 @@ renderAnotherComponent() {
   const { isOpen } = this.state;
   const { product } = this.props;
   if (!isOpen) return null;
+
   return <AnotherComponent product={ product } />;
 }
 
@@ -669,19 +649,10 @@ render() {
 }
 ```
 
-#### Why?
 
-Becuase dividing complex conditional renders in functions, makes it:
+### 10. Keep the code clean
 
-- More extendable
-- More readable
-- Allows for easy additional checks
-
-The recommendation here, is not to go and rewrite everything to functions, but to keep it clean. Complex render methods look dirty.
-
-### 10. Don't place redundant JSX tags
-
-Coding and supporting the project is not easy, and sometimes unnecessary tags are left over. Make sure you remove them.
+Make sure to remove unnecessary or unused tags, comments, commented code, attributes.
 
 #### For example:
 
@@ -689,6 +660,7 @@ Coding and supporting the project is not easy, and sometimes unnecessary tags ar
 // Bad
 return (
 	<>
+        // <Item item={item} />
  		<div>
   		{ /** ... */ }
   	</div>
@@ -702,7 +674,3 @@ return (
   </div>
 );
 ```
-
-#### Why?
-
-Becuase those tags are uneccessary.
