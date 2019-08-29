@@ -33,3 +33,4 @@
     -   [SSL-term service](/docker/G-SSL-container.md)
     -   [XDebug](/docker/D-xdebug.md)
     -   [Infrastructure differences](docker/J-Infrastructure-difference.md)
+    -   [VSCode](/theme/A-vscode.md)
