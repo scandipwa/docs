@@ -16,7 +16,7 @@ starts with Docker docs, that provides pre-configured environment suitable for b
 
  Frontend service provides a convenient way of customizing and working on ScandiPWA theme.
 Service itself is running a Webpack dev-server with autocompile and autoreload. For more details please refer to 
-[Frontend-container](/ocker/F-Frontend-container.md)
+[Frontend-container](/docker/F-Frontend-container.md)
 
 ### SSL-term
 
