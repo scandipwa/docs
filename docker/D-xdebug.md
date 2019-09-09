@@ -16,7 +16,7 @@ Now to set the PhpStorm, go to:
 
 _Preferences > Languages & Frameworks > PHP > Debug_
 
-In this window chech the following settings:
+In this window check the following settings:
 
 -   Xdebug section, set port 9111
 -   "Can accept external connections" is checked
