@@ -6,7 +6,7 @@
 -   [`Redux` as state container](/theme/Redux.md)
 -   [`Webpack` as build tool](/theme/Webpack.md)
 -   [`SCSS` as CSS extension language](https://sass-lang.com)
--   [`BEM` methodology for style organization](/theme/BEM.md)
+-   [`BEM` methodology for style organization](/theme/07-BEM)
 
 ## File structure:
 
