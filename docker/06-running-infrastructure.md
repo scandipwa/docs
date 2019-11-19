@@ -65,7 +65,7 @@ Using the docker-compose CLI, it is not necessary to remember or look for a full
 
  Alternatively, you can use pure Docker commands. Examples ordered accordingly to previous:
 
- `docker logs -f docke-template_app_1` or `docker logs -f <ae608296f86c>`
+ `docker logs -f docker-template_app_1` or `docker logs -f <ae608296f86c>`
 
  `docker exec -it docker-template_app_1 bash` or `docker exec -it <ae608296f86c> bash`
 
