@@ -8,7 +8,7 @@ In this file the `process.env.NODE_ENV` based tools are configured:
 
 1.  The hot reload configuration for `development`
 
-2.  The ReactDevTools disabled for `prodction`
+2.  The ReactDevTools disabled for `production`
 
 ## The main router
 
