@@ -34,6 +34,7 @@ Is a source of following problems:
 
 1. Search is not working.
 2. I can not save the product in admin panel.
+3. The `Indexer handler is not available` in Magento 2
 
 The reason of problems above can be seen in the logs of application container, to see the logs, use:
 
@@ -53,15 +54,16 @@ If `elasticsearch` is showing `stopped` status, then it is down and must be rest
 docker-compose logs -f elasticsearch
 ```
 
-If you see an error log related to `max_map_count` value being to low, do following:
+If you see an error log related to `max_map_count` or `max_file_descriptors` value being to low, do following:
 
 On your **host** machine, execute following command:
 
 ```bash
-sudo sysctl -w vm.max_map_count=262144
+sudo sysctl -w vm.max_map_count=262144 # for too low `max_map_count`
+sudo sysctl -w vm.max_file_descriptors=262144 # for too low `max_file_descriptors`
 ```
 
-> **Note**, to set this value permanently, follow [this guide](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html#vm-max-map-count).
+> **Note**, to set this values permanently, follow [this guide](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html#vm-max-map-count).
 
 After this, you can restart the `elasticsearch` container. To do it:
 
