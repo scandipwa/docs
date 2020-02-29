@@ -1,70 +1,65 @@
-# Scandi PWA documentation
+# ScandiPWA Documentation
 
-The documentation is split in two parts:
+> **Note**: currently documentation is under development. Sorry for inconvenience!
 
-## [ScandiPWA Theme](/theme/01-Project.md)
+ScandiPWA is a single page application (SPA) theme for Magento with advanced PWA capabilities.
 
-All related to PWA theme and it's internal components
+ScandiPWA is based on React and utilizes GraphQL API of Magento 2.3. The problem which our solution solves and the motivation behind the chosen technology stack can be found in the [introduction to ScandiPWA Technology Stack](/overview/introduction.md).
 
-## [Docker Setup](/docker/01-how-to-start.md)
+Implementing the SPA is challenging. There are multiple limitations which must be addressed when going for CSR. Find out more about [SPA application challenges](/overview/challenges.md).
 
-All about Docker environment and local setup
+Our solution is not the only one providing the SPA experience in the Magento ecosystem. To understand the main differences between the existing solutions, refer to [How we are different?](/overview/existing-solutions.md) section of the documentation.
 
-## ScandiPWA Video guides
+## Ready to try?
 
-<style>
-.video {
-	width: 100%;
-	max-width: 600px;
-	padding-bottom: 56.25%;
-	position: relative;
-	margin: 1em 0;
-}
+ScandiPWA is a theme for Magento 2. It can be [installed using composer on existing Magento instance](/setup/on-existing-m2.md).
 
-.video iframe {
-	margin: 0;
-	position: absolute;
-	object-fit: cover;
-	width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-}
-</style>
+Often, we do not have Magento 2 installed on our local host, or we do not want to install something manually - in that case, we have a docker setup ([for linux](/setup/docker/linux.md), [for mac](/setup/docker/mac.md), and [for windows](/setup/docker/windows.md)).
 
-### Getting started - demo setup
-<div class="video">
-	<iframe src="https://www.youtube.com/embed/uMfuNiRNusM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+> **Note**: we strongly recommend setting up using docker. Why? Because it allows us to exclude the environment-related issues from possible reasons when debugging & looking for solutions. There is a whole [FAQ](/setup/docker/faq.md) for most common docker-setup related issue.
 
-### Theme structure overview
-<div class="video">
-	<iframe src="https://www.youtube.com/embed/MyMwFMr2Dns" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+In case you would like to use docker setup in production - [see following guide](/setup/docker/production.md).
 
-### Theme customization (overrides)
-<div class="video">
-	<iframe width="560" height="315" src="https://www.youtube.com/embed/ukBQpajluXg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+In case you just want to run ScandiPWA locally using your remote server as a back-end, please follow [this instruction](/setup/with-remote-m2.md).
 
-## Reporting issues
+**The other way to get the ScandiPWA instance** - is to contact hello@scandipwa.com. We can provide you with scalable (production grade) ScandiPWA cloud setup with or without code access, multiple environments (dev, stage, prod), support and more!
 
-For theme issues create a ticket here: <https://github.com/scandipwa/base-theme/issues>  
-For docker related issues create ticket here: <https://github.com/scandipwa/scandipwa-base/issues>  
+If you still have questions regarding installation, please [join our community chat](https://join.slack.com/t/scandipwa/shared_invite/enQtNzE2Mjg1Nzg3MTg5LTQwM2E2NmQ0NmQ2MzliMjVjYjQ1MTFiYWU5ODAyYTYyMGQzNWM3MDhkYzkyZGMxYTJlZWI1N2ExY2Q1MDMwMTk) or open issues in [scandipwa/scandipwa-base](https://github.com/scandipwa/scandipwa-base) repository.
 
-Or ask in [Slack](https://scandipwa.com/#subscribe-slack) channel
+## Discover a theme
+
+ScandiPWA is fast, light-weight and simple to work with. We are claiming this, because we chose the technology stack on the front-end very carefully. Read more about the technologies we utilized in the [front-end technology stack](/theme/01-Project.md).
+
+A lot of thought is put it the organization of the project internals. The approaches to file structure, file naming, and class naming patterns can be found in the [guide to stay organized](/theme/01-Project.md).
+
+There are [tools for VSCode](https://github.com/scandipwa/scandipwa-development-toolkit) and broad utility function list in the core of ScandiPWA. Read the [development guide](/theme/01-Project.md) to speed up the development process.
+
+Finally, for a deep dive into the theme architecture and build configuration refer to the [technical specification](/theme/01-Project.md).
+
+## Dive deeper into the docker setup!
+
+Find information related to Docker environment in [Docker setup guide](/docker/02-structure-overview).
+
+## Join the community Slack
+
+Still have questions! Do not hesitate to ask in our Slack channel! Join it by following [this link](https://join.slack.com/t/scandipwa/shared_invite/enQtNzE2Mjg1Nzg3MTg5LTQwM2E2NmQ0NmQ2MzliMjVjYjQ1MTFiYWU5ODAyYTYyMGQzNWM3MDhkYzkyZGMxYTJlZWI1N2ExY2Q1MDMwMTk)!
+
+<!--
 
 ## Developing docs
 
 Documentation live version <https://docs.scandipwa.com>
 Documentation repository <https://github.com/scandipwa/docs>
 
-Docs written in Markdown, use any editor as you like  
+Docs written in Markdown, use any editor as you like
 **If you add new page to the docs, add it also to the `/_sidebar.md`**
 
-[Docsify](https://docsify.js.org/#/?id=docsify) is used to make local preview, with additional plugins and generate  
+[Docsify](https://docsify.js.org/#/?id=docsify) is used to make local preview, with additional plugins and generate
+
 To use local preview you will need:
 
--   Setup docsify with `npm install`
+-   Setup Docsify with `npm install`
 -   Execute `npm run serve` to start in dev mode
 -   Preview the changes on <http://localhost:4000>
+
+ -->
