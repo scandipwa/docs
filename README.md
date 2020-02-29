@@ -44,6 +44,10 @@ Find information related to Docker environment in [Docker setup guide](/docker/0
 
 Still have questions! Do not hesitate to ask in our Slack channel! Join it by following [this link](https://join.slack.com/t/scandipwa/shared_invite/enQtNzE2Mjg1Nzg3MTg5LTQwM2E2NmQ0NmQ2MzliMjVjYjQ1MTFiYWU5ODAyYTYyMGQzNWM3MDhkYzkyZGMxYTJlZWI1N2ExY2Q1MDMwMTk)!
 
+## Watch webinars & tutorials on YouTube
+
+We are working hard to make this documentation available in the video-format! Make sure to checkout what we came up with on [our YouTube channel](https://www.youtube.com/channel/UCvnxo7rh5NRwvMHtJga9fww/playlists)!
+
 <!--
 
 ## Developing docs
