@@ -28,7 +28,7 @@ git clone git@github.com:<YOUR GITHUB USERNAME>/scandipwa-base.git
 
 <details>
 <summary>The <code>elasticsearch</code> is not working</summary>
-<br />
+<br>
 
 Is a source of following problems:
 
@@ -82,7 +82,7 @@ _Stores > Configuration > Catalog > Catalog > Catalog Search > Search Engine_ an
 
 <details>
 <summary>The nginx can not find <code>varnish</code> host</summary>
-<br />
+<br>
 
 Is a source of following problems:
 
@@ -103,7 +103,7 @@ docker-compose -f docker-compose.yml -f docker-compose.local.yml -f docker-compo
 
 <details>
 <summary>The <code>varnish</code> container is not working</summary>
-<br />
+<br>
 
 Is a source of following problems:
 
@@ -122,7 +122,7 @@ docker-compose -f docker-compose.yml -f docker-compose.local.yml -f docker-compo
 
 <details>
 <summary>The <code>app</code> container is not working</summary>
-<br />
+<br>
 
 Is a source of following problems:
 
@@ -165,7 +165,7 @@ Scroll those logs to the very top and see if any `error` appears. If it does, se
 </details>
 <details>
 <summary>The <code>composer</code> related issues</summary>
-<br />
+<br>
 
 Inspect the `app` container logs, using following command:
 
@@ -240,7 +240,7 @@ This indicates on:
 
 <details>
 <summary>The <code>orphans</code> warning</summary>
-<br />
+<br>
 
 If the following waring appears during infrastracture run (using `up -d`):
 
@@ -272,7 +272,7 @@ docker-compose -f docker-compose.yml -f docker-compose.local.yml -f docker-compo
 
 <details>
 <summary>The <code>index.php</code> in URL</summary>
-<br />
+<br>
 
 This is common Magento issue. To resolve it, you need to go into Magento 2 admin. From there:
 
@@ -298,7 +298,7 @@ If the homepage shows `404` - there could be mutiple reasons. Check following co
 
 <details>
 <summary>The permission issue</summary>
-<br />
+<br>
 
 If at any point when looking on logs of the `app` container the following message pops up:
 
@@ -328,7 +328,7 @@ docker-compose exec -u user app
 
 <details>
 <summary>The <code>ERR_CERT_REVOKED</code> in Chrome</summary>
-<br />
+<br>
 
 If the Google Chrome shows following issue in Chrome:
 
@@ -345,7 +345,7 @@ Then, there are some problems with generated certificate. As a solution to that 
 
 <details>
 <summary>The <code>address already in use</code> error on setup</summary>
-<br />
+<br>
 
 If following error appears on container startup:
 
@@ -361,7 +361,7 @@ See [this instruction](https://appuals.com/how-to-kill-process-on-port/) to find
 
 <details>
 <summary>Database migration failed</summary>
-<br />
+<br>
 
 First time, when uploading a demo-dump, you might stumble across the error:
 
@@ -382,6 +382,24 @@ mysql -u root -pscandipwa < deploy/latest.sql
 
 # or if you have a mysql locally installed
 mysql -h localhost -P 3307 --protocol=tcp -u root -pscandipwa < deploy/latest.sql
+```
+
+</details>
+<details>
+<summary>The <code>ENV_VARIABLE</code> variable is not set</summary>
+<br>
+
+If when setting up, you notice the following issue:
+
+```bash
+# note: PROJECT_IMAGE is an example variable
+WARNING: The PROJECT_IMAGE is not set. Defaulting to a blank string.
+```
+
+Your machine does not support symlinks. Possibly, you are setting up on Windows. To resolve the issue, fix following files: `.env` and `.application`. To fix them, replace the content of those files with the content of the file mentioned inside. So, for example:
+
+```bash
+.env # replace content with deploy/local/env
 ```
 
 </details>
