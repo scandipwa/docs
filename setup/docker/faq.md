@@ -415,3 +415,26 @@ To resolve this, follow simple steps:
 2. Click on every in the list and make sure the `visiblity` is set right
 
 </details>
+
+<details>
+<summary>Composer: <code>requirements could not be resolved</code></summary>
+<br />
+
+When installing a theme using `scandipwa/installer` the following (or similar) error might appear:
+
+```bash
+Your requirements could not be resolved to an installable set of packages.
+```
+
+This could indicate to current Magento version not matching the the latest version of `scandipwa/installer`. To resolve this:
+
+- For Magento versions below 2.3.3 please use installer ^1.0. Use following command:
+
+    ```bash
+    composer require scandipwa/installer ^1.0
+    ```
+
+> **Note**: This will install older versions of ScandiPWA, and we suggest to upgrade Magento to 2.3.3 to make it possible to use latest ScandiPWA versions.
+
+</details>
+
