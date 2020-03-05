@@ -404,3 +404,14 @@ Your machine does not support symlinks. Possibly, you are setting up on Windows.
 
 </details>
 
+<details>
+<summary>Ratings are not displayed</summary>
+<br />
+
+First time, when uploading a demo-dump, the rating might not be properly displayed.
+
+To resolve this, follow simple steps:
+1. Go to _Stores > Attributes > Rating_
+2. Click on every in the list and make sure the `visiblity` is set right
+
+</details>
