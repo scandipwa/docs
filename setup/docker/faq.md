@@ -438,3 +438,49 @@ This could indicate to current Magento version not matching the the latest versi
 
 </details>
 
+<details>
+<summary>Content customization does not work</summary>
+<br />
+
+If the customization selected in the BE configuration (_Stores > Configuration > ScandiPWA > Color customization_) is not working (not opening at all):
+
+- Update the customization module to `1.0.1^` using following command:
+
+    ```bash
+    composer update scandipwa/customization
+    ```
+
+- Alternatively, make sure, there exists at least one:
+  - CMS block
+  - visible on frontend Attribute
+  - Scandiweb Menu
+
+</details>
+
+<details>
+<summary>Customization is not displayed</summary>
+<br />
+
+If the customization selected is not displayed on FE, check the `frontend` container. It must be `stopped`, or not running at all. The command for this:
+
+```bash
+# if you have the alias set up
+dcf ps | grep frontend
+
+# without aliases (not recommended)
+docker-compose -f docker-compose.yml -f docker-compose.local.yml -f docker-compose.ssl.yml ps | grep frontend
+```
+
+Must output nothing, or `stopped` in the container status. If it is running, the re-create the setup without frontend container:
+
+```bash
+# if you have the alias set up
+dc up -d --remove-orphans
+
+# without aliases (not recommended)
+docker-compose -f docker-compose.yml -f docker-compose.local.yml -f docker-compose.ssl.yml up -d --remove-orphans
+```
+
+> **Note**: the customization does not work in "development" mode - when the `frontend` container is running.
+
+</details>
