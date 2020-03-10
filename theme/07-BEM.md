@@ -32,7 +32,7 @@ This projects uses [rebem-jsx-plugin](https://github.com/rebem/rebem-jsx) to imp
 ### Creating an element
 
 ```html
-<div block="Header" element="Message">
+<div block="Header" elem="Message">
 
 <!-- Results into -->
 <div className="Header-Message">
@@ -41,7 +41,7 @@ This projects uses [rebem-jsx-plugin](https://github.com/rebem/rebem-jsx) to imp
 ### Creating a block which is an element of parent block
 
 ```html
-<div block="Menu" mix={{ block="Header", element: "Menu" }}>
+<div block="Menu" mix={{ block="Header", elem: "Menu" }}>
 
 <!-- Results into -->
 <div className="Menu Header-Menu">
@@ -52,7 +52,7 @@ This projects uses [rebem-jsx-plugin](https://github.com/rebem/rebem-jsx) to imp
 -   Boolean modifier
 
 ```html
-<div block="Menu" mix={{ block="Header", element: "Menu" }}, mods={{visible: true}}>
+<div block="Menu" mix={{ block="Header", elem: "Menu" }}, mods={{visible: true}}>
 
 <!-- Results into -->
 <div className="Menu Header-Menu_visible">
@@ -61,7 +61,7 @@ This projects uses [rebem-jsx-plugin](https://github.com/rebem/rebem-jsx) to imp
 -   Single key -> value modifier
 
 ```html
-<div block="Menu" mix={{ block="Header", element: "Menu" }}, mods={{type: "horizontal"}}>
+<div block="Menu" mix={{ block="Header", elem: "Menu" }}, mods={{type: "horizontal"}}>
 
 <!-- Results into -->
 <div className="Menu Header-Menu_type_horizontal">
@@ -70,7 +70,7 @@ This projects uses [rebem-jsx-plugin](https://github.com/rebem/rebem-jsx) to imp
 -   Multiple key -> value modifier
 
 ```html
-<div block="Menu" mix={{ block="Header", element: "Menu" }}, mods={{type: "horizontal", behaviour: "autoClose"}}>
+<div block="Menu" mix={{ block="Header", elem: "Menu" }}, mods={{type: "horizontal", behaviour: "autoClose"}}>
 
 <!-- Results into -->
 <div className="Menu Header-Menu_type_horizontal Header-Menu_behaviour_autoClose">
