@@ -32,7 +32,7 @@ ScandiPWA is fast, light-weight and simple to work with. We are claiming this, b
 
 A lot of thought is put it the organization of the project internals. The approaches to file structure, file naming, and class naming patterns can be found in the [guide to stay organized](/theme/01-Project.md).
 
-There are [tools for VSCode](https://github.com/scandipwa/scandipwa-development-toolkit) and broad utility function list in the core of ScandiPWA. Read the [development guide](/theme/01-Project.md) to speed up the development process.
+There are [tools for VSCode](https://github.com/scandipwa/scandipwa-development-toolkit) and broad utility function list in the core of ScandiPWA. Read the [development guide](/scandipwa/overrides.md) to speed up the development process.
 
 Finally, for a deep dive into the theme architecture and build configuration refer to the [technical specification](/theme/01-Project.md).
 
