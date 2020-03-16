@@ -28,11 +28,11 @@ If you still have questions regarding installation, please [join our community c
 
 ## Discover a theme
 
-ScandiPWA is fast, light-weight and simple to work with. We are claiming this, because we chose the technology stack on the front-end very carefully. Read more about the technologies we utilized in the [front-end technology stack](/theme/01-Project.md).
+ScandiPWA is fast, light-weight and simple to work with. We are claiming this, because we chose the technology stack on the front-end very carefully. Read more about the technologies we utilized in the [front-end technology stack](/scandipwa/stack.md).
 
-A lot of thought is put it the organization of the project internals. The approaches to file structure, file naming, and class naming patterns can be found in the [guide to stay organized](/theme/01-Project.md).
+A lot of thought is put it the organization of the project internals. The approaches to file structure, file naming, and class naming patterns can be found in the [guide to stay organized](/scandipwa/organization.md).
 
-There are [tools for VSCode](https://github.com/scandipwa/scandipwa-development-toolkit) and broad utility function list in the core of ScandiPWA. Read the [development guide](/scandipwa/overrides.md) to speed up the development process.
+There are [tools for VSCode](https://github.com/scandipwa/scandipwa-development-toolkit) and broad utility function list in the core of ScandiPWA. Read the [development guide](/scandipwa/development.md) to speed up the development process.
 
 Finally, for a deep dive into the theme architecture and build configuration refer to the [technical specification](/theme/01-Project.md).
 
