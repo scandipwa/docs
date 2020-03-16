@@ -13,6 +13,10 @@ git clone git@github.com:<YOUR GITHUB USERNAME>/scandipwa-base.git
 
 > **Note**: the `<YOUR GITHUB USERNAME>` is not a literal text to keep, but the "template" to replace with the real value.
 
+## Watch video
+
+> **Note**: video is coming soon!
+
 ## Before you start
 
 1. Make sure your server is running `Magento 2.3.3`.
@@ -26,6 +30,28 @@ git clone git@github.com:<YOUR GITHUB USERNAME>/scandipwa-base.git
     ```
 
     In case this command resulted in error, install node using the [official guide](https://nodejs.org/en/download/package-manager/). Prefer `nvm` installation to get NODE version 10 specifically.
+
+4. Make sure the `Varnish` is installed on the host / infrastructure and Magento is configured to use it. Please validate with following:
+
+    ```bash
+    varnishd -V # should be 5^
+    ```
+
+    In Magento admin go to _Stores > Configuration > Advanced > System > Full Page Cache_. Make sure the `Varnish Cache` is selected in the dropdown, varnish configuration has proper values set in it.
+
+    If it is not, please follow [official documentation](https://devdocs.magento.com/guides/v2.3/config-guide/varnish/config-varnish.html) to set it up.
+
+    > **Note**: varnish is important! Please validate if it is installed with your hosting provider / developer.
+
+5. Make sure the `Redis` is installed on your host / infrastructure. To validate the installation run following:
+
+    ```bash
+    redis-cli -v # should output 2.5^
+    ```
+
+    If it is not installed, please follow [this guide](https://codewithhugo.com/install-just-redis-cli-on-ubuntu-debian-jessie/) to obtain it.
+
+    > **Note**: steps 5. and 6. are the requirements of `scandipwa/persisted-query` package.
 
 ## It is time to setup!
 
@@ -98,9 +124,19 @@ git clone git@github.com:<YOUR GITHUB USERNAME>/scandipwa-base.git
 
 ## Something does not work?
 
-Follow this simple algorithm:
+Upon immediate inspection theme could appear fine, but might not load at all. Please open you inspector and make sure the requests (at least one GET and one POST) has returned successfully. If they did, please checkout the rest for `error` fields in response. The most common issues are:
 
-1. Refer to the [FAQ page](./docker/faq.md). It most probably already has the solution to your problem.
+1. Missing Header and Footer CMS blocks.
+
+    To resolve, go to the admin panel, create at least one CMS block and one Scandiweb menu, then go to _Store > Configuration > ScandiPWA > Content customization_ and select CMS blocks for all fields. If you will select the field to be "empty" it will also count as a selection.
+
+2. Homepage not showing - refer to the [FAQ](/setup/docker/faq.md), search for `404 on Homepage`.
+
+> **Note**: after changing those configurations remember to flush the Magento caches.
+
+For other issues, follow this simple algorithm:
+
+1. Refer to the [FAQ page](/setup/docker/faq.md). It most probably already has the solution to your problem.
 
     > **Note**: the Docker setup related issues are also mentioned in this document.
 

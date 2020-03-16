@@ -26,17 +26,10 @@ git clone git@github.com:<YOUR GITHUB USERNAME>/scandipwa-base.git
 
 <br>
 
-<details>
-<summary>The <code>elasticsearch</code> is not working</summary>
-<br>
 
-Is a source of following problems:
+## Search does not work, product can not be saved, can not complete checkout, Magento throwing: `Indexer handler is not available`
 
-1. Search is not working.
-2. I can not save the product in admin panel.
-3. The `Indexer handler is not available` in Magento 2
-
-The reason of problems above can be seen in the logs of application container, to see the logs, use:
+The `elasticsearch` is might not be working. The reason of problems above can be seen in the logs of application container, to see the logs, use:
 
 ```bash
 docker-compose logs -f app
@@ -78,17 +71,9 @@ _Stores > Configuration > Catalog > Catalog > Catalog Search > Search Engine_ an
 
 > **Note**, after the next deploy, this value will be switched back to `elasticsearch` as this setting is set during the deploy.
 
-</details>
+## The site does not open at all / loads forever
 
-<details>
-<summary>The nginx can not find <code>varnish</code> host</summary>
-<br>
-
-Is a source of following problems:
-
-1. The site does not open at all
-
-Execute following commands:
+Sometimes the nginx can not find `varnish` host. Execute following commands:
 
 ```bash
 # if you have the alias set up
@@ -99,15 +84,8 @@ dc restart varnish
 docker-compose -f docker-compose.yml -f docker-compose.local.yml -f docker-compose.ssl.yml restart nginx ssl-term
 docker-compose -f docker-compose.yml -f docker-compose.local.yml -f docker-compose.ssl.yml restart varnish
 ```
-</details>
 
-<details>
-<summary>The <code>varnish</code> container is not working</summary>
-<br>
-
-Is a source of following problems:
-
-1. Site responds with `503 backend fetch failed`
+## The `503 backend fetch failed`
 
 Execute following commands:
 
@@ -118,15 +96,8 @@ dc restart varnish
 # without aliases (not recommended)
 docker-compose -f docker-compose.yml -f docker-compose.local.yml -f docker-compose.ssl.yml restart varnish
 ```
-</details>
 
-<details>
-<summary>The <code>app</code> container is not working</summary>
-<br>
-
-Is a source of following problems:
-
-1. Site responds with `502 bad gateway`
+## The `502 bad gateway` in production-like setup
 
 First, check if the `app` container is `up`. You can do this by executing (look for the `scandipwa-base_app_1` container status):
 
@@ -162,10 +133,7 @@ docker-compose logs -f app
 
 Scroll those logs to the very top and see if any `error` appears. If it does, search for this error mentions in this FAQ. If there are no error, execute the same instructions as in the **The nginx can not find `varnish` host** FAQ section.
 
-</details>
-<details>
-<summary>The <code>composer</code> related issues</summary>
-<br>
+## The `composer` related issues
 
 Inspect the `app` container logs, using following command:
 
@@ -236,11 +204,7 @@ This indicates on:
 
 - the `COMPOSER_AUTH` might be valid JSON, but missing the `"repo.magento.com"` key in it. Again, refer to the instruction above to obtain tokens.
 
-</details>
-
-<details>
-<summary>The <code>orphans</code> warning</summary>
-<br>
+## The `orphans` warning
 
 If the following waring appears during infrastracture run (using `up -d`):
 
@@ -268,11 +232,7 @@ dcf up -d --remove-orphans
 docker-compose -f docker-compose.yml -f docker-compose.local.yml -f docker-compose.ssl.yml -f docker-compose.frontend.yml up -d --remove-orphans
 ```
 
-</details>
-
-<details>
-<summary>The <code>index.php</code> in URL</summary>
-<br>
+## The `index.php` in URL
 
 This is common Magento issue. To resolve it, you need to go into Magento 2 admin. From there:
 
@@ -282,11 +242,7 @@ This is common Magento issue. To resolve it, you need to go into Magento 2 admin
 
 3. Go to _Stores > Configuration > General > Web > Base URLs_ (Secure) check they end with `/`
 
-</details>
-
-<details>
-<summary>The <code>404</code> on homepage</summary>
-<br />
+## The `404` on homepage
 
 If the homepage shows `404` - there could be mutiple reasons. Check following configurations:
 
@@ -294,11 +250,7 @@ If the homepage shows `404` - there could be mutiple reasons. Check following co
 
 2. Go to _Content > Pages_ make sure the column `Store View` is not empty for your Home Page CMS page. If it is empty, click on the page, select neccessary stores and click save (the stores might appear selected, igonre it).
 
-</details>
-
-<details>
-<summary>The permission issue</summary>
-<br>
+## The `Operation not permited` (permission issues)
 
 If at any point when looking on logs of the `app` container the following message pops up:
 
@@ -324,11 +276,7 @@ inapp bash
 docker-compose exec -u user app
 ```
 
-</details>
-
-<details>
-<summary>The <code>ERR_CERT_REVOKED</code> in Chrome</summary>
-<br>
+## The `ERR_CERT_REVOKED` in Chrome
 
 If the Google Chrome shows following issue in Chrome:
 
@@ -341,11 +289,7 @@ Then, there are some problems with generated certificate. As a solution to that 
 1. Import & trust the `opt/cert/scandipwa-fullchain.pem` from the project source directory
 2. Type `thisisunsafe` on the certificate error page
 
-</details>
-
-<details>
-<summary>The <code>address already in use</code> error on setup</summary>
-<br>
+## The `address already in use` error on setup
 
 If following error appears on container startup:
 
@@ -357,11 +301,7 @@ This indicates that one or multiple ports required for the setup are already in 
 
 See [this instruction](https://appuals.com/how-to-kill-process-on-port/) to find out how to kill processess on specific ports.
 
-</details>
-
-<details>
-<summary>Database migration failed</summary>
-<br>
+## Database migration failed
 
 First time, when uploading a demo-dump, you might stumble across the error:
 
@@ -384,10 +324,7 @@ mysql -u root -pscandipwa < deploy/latest.sql
 mysql -h localhost -P 3307 --protocol=tcp -u root -pscandipwa < deploy/latest.sql
 ```
 
-</details>
-<details>
-<summary>The <code>ENV_VARIABLE</code> variable is not set</summary>
-<br>
+## The `ENV_VARIABLE` variable is not set
 
 If when setting up, you notice the following issue:
 
@@ -402,11 +339,7 @@ Your machine does not support symlinks. Possibly, you are setting up on Windows.
 .env # replace content with deploy/local/env
 ```
 
-</details>
-
-<details>
-<summary>Ratings are not displayed</summary>
-<br />
+## Ratings are not displayed
 
 First time, when uploading a demo-dump, the rating might not be properly displayed.
 
@@ -414,11 +347,7 @@ To resolve this, follow simple steps:
 1. Go to _Stores > Attributes > Rating_
 2. Click on every in the list and make sure the `visiblity` is set right
 
-</details>
-
-<details>
-<summary>Composer: <code>requirements could not be resolved</code></summary>
-<br />
+## Composer: `requirements could not be resolved`
 
 When installing a theme using `scandipwa/installer` the following (or similar) error might appear:
 
@@ -436,11 +365,7 @@ This could indicate to current Magento version not matching the the latest versi
 
 > **Note**: This will install older versions of ScandiPWA, and we suggest to upgrade Magento to 2.3.3 to make it possible to use latest ScandiPWA versions.
 
-</details>
-
-<details>
-<summary>Content customization does not work</summary>
-<br />
+## Content customization does not work
 
 If the customization selected in the BE configuration (_Stores > Configuration > ScandiPWA > Color customization_) is not working (not opening at all):
 
@@ -455,11 +380,7 @@ If the customization selected in the BE configuration (_Stores > Configuration >
   - visible on frontend Attribute
   - Scandiweb Menu
 
-</details>
-
-<details>
-<summary>Customization is not displayed</summary>
-<br />
+## Customization is not displayed
 
 If the customization selected is not displayed on FE, check the `frontend` container. It must be `stopped`, or not running at all. The command for this:
 
@@ -483,4 +404,24 @@ docker-compose -f docker-compose.yml -f docker-compose.local.yml -f docker-compo
 
 > **Note**: the customization does not work in "development" mode - when the `frontend` container is running.
 
-</details>
+## Luma theme is displayed
+
+If after following all steps of installation the `Luma` or other default theme keeps showing make sure following is true:
+
+1. On the server (in the container) the theme folder (`app/design/frontend/<VENDOR>/<NAME>`, in docker-setup `app/design/frontend/Scandiweb/pwa`) has the folder named `Magento_Theme` inside. This folder must not be empty. It should contain two other folders. If this is not true, from themes root folder execute:
+
+    ```bash
+    npm ci && npm run build
+    ```
+
+    This should install and compile the theme, after command execution, the folder should appear. If it does not - you might have stumbled upon some compilation issue, please read the compilation logs to found out where and why.
+
+2. The theme is set in admin. To check the _Content > Design > Themes_ (from Magento admin) and make sure your store has a ScandiPWA theme set.
+
+3. In case all of above are true, but the theme is not appearing, please execute following:
+
+    ```bash
+    magento c:f
+    ```
+
+    Check the frontend again after that.

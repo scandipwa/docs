@@ -9,6 +9,10 @@ git clone git@github.com:<YOUR GITHUB USERNAME>/scandipwa-base.git
 
 > **Note**: the `<YOUR GITHUB USERNAME>` is not a literal text to keep, but the "template" to replace with the real value.
 
+## Watch video
+
+> **Note**: video is coming soon!
+
 ## Before you start
 
 1. If you plan to make changes to the theme make sure to [create GitHub account](https://github.com/join), or [sign in](https://github.com/login) into existing one.
@@ -48,7 +52,7 @@ git clone git@github.com:<YOUR GITHUB USERNAME>/scandipwa-base.git
     alias applogs="docker-compose logs -f --tail=100 app"
 
     # use `frontlogs` to quickly see the last 100 lines of frontend container logs
-    alias frontlogs="docker-compose logs -f --tail=100 frontend"
+    alias frontlogs="docker-compose -f docker-compose.yml -f docker-compose.local.yml -f docker-compose.ssl.yml -f docker-compose.frontend.yml logs -f --tail=100 frontend"
     ```
 
     Those aliases are required to have all services available at all times. Otherwise, if just using `docker-compose` only services defined in `docker-composer.yml` will be available. Understand what services are available at all by reading [this part of our documentation](https://docs.scandipwa.com/#/docker/03-services?id=list-of-available-services).
