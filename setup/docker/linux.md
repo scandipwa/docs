@@ -141,6 +141,8 @@ git clone git@github.com:<YOUR GITHUB USERNAME>/scandipwa-base.git
 
     > **Note**: There are two ways to use the setup: with `frontend` container and without it. The setup with `frontend` container is called **development**. The alias running it is `dcf`, the alias for **production**-like run is `dc`.
 
+    > **VIP Note**: Please run the `dc` (production-like) setup on first installation, otherwise the frontend container will not function properly. After it is up, can switch to `dcf` (development).
+
     - For **production**-like setup:
 
         ```bash
