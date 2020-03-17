@@ -14,19 +14,25 @@
 
 - ScandiPWA theme
 
-    - [Project](/theme/01-Project.md)
-    - [Overview](/theme/02-Overview.md)
-    - [Configuration](/theme/03-Configuration.md)
-    - [Webpack](/theme/04-Webpack.md)
-    - [Redux](/theme/05-Redux.md)
-    - [Styles](/theme/06-Styles.md)
-    - [BEM](/theme/07-BEM.md)
-    - [Coding Standard](/theme/08-Standard.md)
-    - [Debuggers](/theme/09-Debuggers.md)
-    - [Architecture](/theme/10-Architecture.md)
-    - [Utilities](/theme/11-Utilities.md)
-    - [Components](/theme/12-Components.md)
-    - [VSCode](/theme/A-vscode.md)
+    - [Frontend stack Q&A](/scandipwa/stack.md)
+    - [Design principles](/scandipwa/organization.md)
+    - [Development guide](/scandipwa/development.md)
+
+    ***
+
+    - [Project (deprecated)](/theme/01-Project.md)
+    - [Overview (deprecated)](/theme/02-Overview.md)
+    - [Configuration (deprecated)](/theme/03-Configuration.md)
+    - [Webpack (deprecated)](/theme/04-Webpack.md)
+    - [Redux (deprecated)](/theme/05-Redux.md)
+    - [Styles (deprecated)](/theme/06-Styles.md)
+    - [BEM (deprecated)](/theme/07-BEM.md)
+    - [Coding (deprecated) Standard](/theme/08-Standard.md)
+    - [Debuggers (deprecated)](/theme/09-Debuggers.md)
+    - [Architecture (deprecated)](/theme/10-Architecture.md)
+    - [Utilities (deprecated)](/theme/11-Utilities.md)
+    - [Components (deprecated)](/theme/12-Components.md)
+    - [VSCode (deprecated)](/theme/A-vscode.md)
 
 - Docker setup
 
