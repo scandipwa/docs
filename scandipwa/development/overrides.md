@@ -2,7 +2,7 @@
 
 ScandiPWA is not meant to be modified, rather extended. This means no changes must be done it the source theme (`vendor/scandipwa/source`), rather changes in `app/design/frontend/<VENDOR>/<THEME>` must be made.
 
-## A step-by-step algorithm
+## A step-by-step algorithm for JavaScript
 
 You create a file with the same name, under the same folder - reference the `vendor/scandipwa/source` to find the exact name and file. But in general, the algorithm is as follows:
 
@@ -56,7 +56,7 @@ You create a file with the same name, under the same folder - reference the `ven
 
 Let's now consider a common cases, to prove the algorithm works.
 
-## Overriding the main router
+### Overriding the main router
 
 The original router file is located in `app/route/index.js`. It is common to extend it in order to add new routes, here is a template to use:
 
@@ -108,7 +108,7 @@ export class AppRouter extends SourceAppRouter {
 export default connect(mapStateToProps, mapDispatchToProps)(AppRouter);
 ```
 
-## Overriding the Header component & container
+### Overriding the Header component & container
 
 Imagine you want to extend the Header functionality, by adding additional state to it. This requires to extend the original component and container. Here is a template for them (files are: `app/component/Header.component.js` and `app/component/Header.container.js`).
 
@@ -188,6 +188,34 @@ class HeaderContainer extends SourceHeaderContainer {
 // preserve the default export
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderContainer);
 ```
+
+## Overriding the styles
+
+For styles nothing changes. You create a file under the same name and it gets included into the bundle. Sometimes, the restart of frontend container is needed, because of the webpack cache. The sole exception to this general rule is the `src/app/style/abstract/_abstract.scss` file. Because it is auto-imported by webpack in all `*/**.scss` files. If you plan to override it:
+
+1. Create the file importing original styles, like this:
+
+    ```scss
+    // In case you made no changes
+    @import '../../../../../../../../../vendor/scandipwa/source/src/app/style/abstract/variables';
+    @import '../../../../../../../../../vendor/scandipwa/source/src/app/style/abstract/media';
+    @import '../../../../../../../../../vendor/scandipwa/source/src/app/style/abstract/button';
+    @import '../../../../../../../../../vendor/scandipwa/source/src/app/style/abstract/loader';
+
+    // In case you have overrides for the files
+    @import './icons';
+    @import './parts';
+
+    // Here, you can add your files
+    @import './my-abstract-style';
+    ```
+
+2. In both webpack configurations (`webpack.development.config.js`, `webpack.production.config.js`) change following line:
+
+    ```js
+    path.resolve(fallbackRoot, 'src', 'app', 'style', 'abstract', '_abstract.scss') // from "fallbackRoot"
+    path.resolve(projectRoot, 'src', 'app', 'style', 'abstract', '_abstract.scss') // to "projectRoot"
+    ```
 
 ## Need more examples?
 

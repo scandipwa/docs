@@ -24,9 +24,6 @@ git clone git@github.com:<YOUR GITHUB USERNAME>/scandipwa-base.git
 
 > **Note**: the `<YOUR GITHUB USERNAME>` is not a literal text to keep, but the "template" to replace with the real value.
 
-<br>
-
-
 ## Search does not work, product can not be saved, can not complete checkout, Magento throwing: `Indexer handler is not available`
 
 The `elasticsearch` is might not be working. The reason of problems above can be seen in the logs of application container, to see the logs, use:

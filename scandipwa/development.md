@@ -32,13 +32,17 @@ We proved that flat file structure is beneficial (see more in the [organization 
 
 Now, it is time to get familiar in the close up look. The overview of themes location, the internal folder-structure and the pattern observation can be found in the ["File structure 101"]() guide.
 
+### Component architecture
+
+The SPA main goal is to transfer the data into the output on the client's screen. Learn how the data is flowing through the application and what part of the application is responsible for what task by reading [the data-flow & more]() guide.
+
 ### Override mechanism
 
 No modification to the source-code, fluid migrations from version to version - no need to git-merge the changes.
 
 Those are the benefits of our override mechanism. It allows to build on top of the vendor theme like in M2 - just create a file with the same name and location!
 
-Sounds interesting? Dive into the ["Overriding mechanism guide"](/scandipwa/overrides.md) now!
+Sounds interesting? Dive into the ["Overriding mechanism guide"](/scandipwa/development/overrides.md) now!
 
 ### Debugging guide
 
@@ -46,4 +50,10 @@ Sounds interesting? Dive into the ["Overriding mechanism guide"](/scandipwa/over
 
 ## Going advanced
 
-Time to begin the project development! Let's take a look on our recommendations for base-template creation and the 
+Time to begin the project development! Let's take a look on our recommendations on real project development. From the base-template creation to the component architecture and most common code-review mistakes.
+
+### Base template (theming)
+
+Every design is different. But each has some base elements it is build out of. These base elements, common styles, resets are called "base-template".
+
+See the best approaches for base element styling, font loading and the  in [this guide](/scandipwa/development/base-template.md).
