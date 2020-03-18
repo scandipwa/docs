@@ -30,11 +30,11 @@ Before we get into modules, examples, and best-practices let's build a solid gro
 
 We proved that flat file structure is beneficial (see more in the [organization patterns article](/scandipwa/organization.md)).
 
-Now, it is time to get familiar in the close up look. The overview of themes location, the internal folder-structure and the pattern observation can be found in the ["File structure 101"]() guide.
+Now, it is time to get familiar in the close up look. The overview of themes location, the internal folder-structure and the pattern observation can be found in the [file structure](/scandipwa/development/file-structure.md) guide.
 
 ### Component architecture
 
-The SPA main goal is to transfer the data into the output on the client's screen. Learn how the data is flowing through the application and what part of the application is responsible for what task by reading [the data-flow & more]() guide.
+The SPA main goal is to transfer the data into the output on the client's screen. Learn how the data is flowing through the application and what part of the application is responsible for what task by reading [the data-flow guide](/scandipwa/development/data-flow.md).
 
 ### Override mechanism
 

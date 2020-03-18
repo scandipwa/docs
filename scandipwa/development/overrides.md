@@ -56,7 +56,7 @@ You create a file with the same name, under the same folder - reference the `ven
 
 Let's now consider a common cases, to prove the algorithm works.
 
-### Overriding the main router
+## Overriding the main router
 
 The original router file is located in `app/route/index.js`. It is common to extend it in order to add new routes, here is a template to use:
 
@@ -108,7 +108,7 @@ export class AppRouter extends SourceAppRouter {
 export default connect(mapStateToProps, mapDispatchToProps)(AppRouter);
 ```
 
-### Overriding the Header component & container
+## Overriding the Header component & container
 
 Imagine you want to extend the Header functionality, by adding additional state to it. This requires to extend the original component and container. Here is a template for them (files are: `app/component/Header.component.js` and `app/component/Header.container.js`).
 

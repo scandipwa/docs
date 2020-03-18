@@ -44,13 +44,12 @@ If `elasticsearch` is showing `stopped` status, then it is down and must be rest
 docker-compose logs -f elasticsearch
 ```
 
-If you see an error log related to `max_map_count` or `max_file_descriptors` value being to low, do following:
+If you see an error log related to `max_map_count` value being to low, do following:
 
 On your **host** machine, execute following command:
 
 ```bash
 sudo sysctl -w vm.max_map_count=262144 # for too low `max_map_count`
-sudo sysctl -w vm.max_file_descriptors=262144 # for too low `max_file_descriptors`
 ```
 
 > **Note**, to set this values permanently, follow [this guide](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html#vm-max-map-count).
@@ -422,3 +421,5 @@ If after following all steps of installation the `Luma` or other default theme k
     ```
 
     Check the frontend again after that.
+
+## Invalid regular expression: missing /

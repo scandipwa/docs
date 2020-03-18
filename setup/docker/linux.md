@@ -9,9 +9,11 @@ git clone git@github.com:<YOUR GITHUB USERNAME>/scandipwa-base.git
 
 > **Note**: the `<YOUR GITHUB USERNAME>` is not a literal text to keep, but the "template" to replace with the real value.
 
-## Watch video
+## Follow me setting the theme up
 
-> **Note**: video is coming soon!
+> **Note**: the video will be re-worked, current video has wrong "cuts" in it. Start from `16:16` in the player.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wzntMZkdlKc?start=977" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Before you start
 
