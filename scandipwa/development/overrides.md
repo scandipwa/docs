@@ -217,6 +217,128 @@ For styles nothing changes. You create a file under the same name and it gets in
     path.resolve(projectRoot, 'src', 'app', 'style', 'abstract', '_abstract.scss') // to "projectRoot"
     ```
 
+## Overriding templates (HTML, pHTML)
+
+ScandiPWA has a long-standing bug - the templates are impossibble to override. For some reason, they are always taken from vendor folder, instead of the theme. Becuase of that, in order to change anything inside of the `src/public/index.development.html` or `src/public/index.production.phtml` you must:
+
+1. Rename the files, in exmaple, from `src/public/index.development.html` to `src/public/my-index.development.html`, and from `src/public/index.production.phtml` to `src/public/my-index.production.phtml`.
+
+    > **Note**: we renamed from `index` to `my-index`! You can rename to anything else.
+
+2. Change their webpack import declarations. In both webpack configurations (`webpack.development.config.js`, `webpack.production.config.js`) change following line:
+
+    ```js
+    // In the "webpack.production.config.js"
+    path.resolve(projectRoot, 'src', 'public', 'index.production.phtml') // from "index.production.phtml"
+    path.resolve(projectRoot, 'src', 'public', 'index.production.phtml') // to "my-index.production.phtml"
+
+    // In the "webpack.development.config.js"
+    path.resolve(projectRoot, 'src', 'public', 'index.development.html') // from "index.development.html"
+    path.resolve(projectRoot, 'src', 'public', 'my-index.development.html') // to "my-index.development.html"
+    ```
+
+3. Reload the webpack. If using docker the following command should be executed:
+
+    ```bash
+    # if you have the alias set up
+    dcf restart frontend
+
+    # without aliases (not recommended)
+    docker-compose -f docker-compose.yml -f docker-compose.local.yml -f docker-compose.ssl.yml -f docker-compose.frontend.yml restart frontend
+    ```
+
+    If using without docker - stop the server, then start it again.
+
+## Extending reducers & actions
+
+The reducers are not classes. The actions are simple functions. Here is an instruction to do both: create new action, update initial state.
+
+To extend the action, in example the `src/app/store/Navigation/Navigation.action.js`. Create the file with same name and path in your theme (`app/design/<VENDOR>/<THEME>`), then do following:
+
+```js
+// import constants you plan to use
+import {
+    CHANGE_NAVIGATION_STATE
+} from 'SourceStore/Navigation/Navigation.action';
+
+// redeclare, modify the original action
+export const changeNavigationState = (navigationType, navigationState, myVariable) => ({
+    type: CHANGE_NAVIGATION_STATE,
+    navigationType,
+    navigationState,
+    myVariable
+});
+
+// declare new action type
+export const MY_CUSTOM_ACTION = 'MY_CUSTOM_ACTION';
+
+// declare new action
+export const myCustomAction = myVariable => ({
+    type: MY_CUSTOM_ACTION,
+    myVariable
+});
+
+// export unchanged constants from original file
+export {
+    GOTO_PREVIOUS_NAVIGATION_STATE,
+    CHANGE_NAVIGATION_STATE,
+    goToPreviousNavigationState
+} from 'SourceStore/Navigation/Navigation.action';
+```
+
+Extending reducer is a little more complex. The main idea is to create a switch before the original reducer, where if new / necessary action type is found - return the state update, else call original reducer. Take a look:
+
+```js
+// import outside dependencies needed for extension
+import {
+    DEFAULT_STATE
+} from 'Component/NavigationAbstract/NavigationAbstract.container';
+
+import { MY_CUSTOM_ACTION } from './Navigation.action';
+
+// import constants you plan to modify, reuse
+import sourceNavigationReducer, {
+    initialState as sourceInitialState,
+} from 'SourceStore/Navigation/Navigation.reducer';
+
+// declare anything needed for the reducer
+export const MY_NEW_NAVIGATION_TYPE = 'MY_NEW_NAVIGATION_TYPE';
+
+const handleMyCustomAction = (action) => {
+    // take the payload of the action
+    const { myVariable } = action;
+
+    return {
+        // update the global state
+        ...state
+    };
+};
+
+// extend initial state, export it
+export const initialState = {
+    ...sourceInitialState,
+    [MY_NEW_NAVIGATION_TYPE]: {
+        navigationState: DEFAULT_STATE,
+        navigationStateHistory: [DEFAULT_STATE]
+    }
+};
+
+// extend the reducer with custom action handler
+const NavigationReducer = (state = initialState, action) => {
+    const { type } = action;
+
+    switch (type) {
+    case MY_CUSTOM_ACTION:
+        return handleMyCustomAction(action);
+    default:
+        return sourceNavigationReducer()
+    }
+};
+
+// export the new reducer as default
+export default NavigationReducer;
+```
+
 ## Need more examples?
 
 Other component extension is similar. Please re-read the step-by-step algorithm, this really helps!

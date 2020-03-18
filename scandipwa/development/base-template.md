@@ -39,6 +39,26 @@ Others, which must be available in every component style must be moved into `src
 
 ## Optimize fonts
 
+Please go through the project and collect the necessary font-faces. Ideally, there must be **no more than 5 font-faces** in total. Otherwise this will strongly affect the website performance.
+
+> **Note**: sometimes, people assume having one font but in multiple weights is OK - but it is commonly not. For usual fonts every font-weight weights the same. This means that you are not limited by 5 font-families, rather by 5 font-family / font-weight combinations.
+
+Try to **remove unused glyphs** (symbols). If your site is not using cyrillic, but the font includes is - ask your designer to remove them. Use services like [FontForge](https://fontforge.org/en-US/) for that!
+
+The `@font-face` declarations are located in `src/public/index.development.html` and `src/public/index.production.phtml`. Overriding those files is a little more complex then you might think. Checkout [our guide](/scandipwa/development/overrides.md) to know more!
+
+> **Note**: in the `@font-face` declaration, the property `font-display` **MUST** be declared.
+
+In the same files the following HTML code is present for every font asset. It's task is to start preloading the font, before browser starts parsing CSS:
+
+```html
+<link rel="preload" href="<LINK TO FONT-FACE>" as="font" type="font/woff2" crossorigin="">
+```
+
+> **Note**: the best format for your fonts is the `woff2` - it is almost 10 times smaller than `ttf` in some cases.
+
+> **VIP Note**: always prefer serving fonts from server. Google fonts are great, but they do not provide the best performance to your website.
+
 Make sure to check how your fonts look on Mac, Linux and Windows. Adjust following properties to match your fonts on mentioned platforms (do it before-hand!):
 
 ```css
@@ -54,11 +74,9 @@ Make sure to check how your fonts look on Mac, Linux and Windows. Adjust followi
 
 Please add / edit those styles in the `src/app/style/base/_reset.scss`. This is a place to reset the default CSS behavior of the elements.
 
-> **TODO**: add not about importing fonts in html, add link to override doc. Add note about reducing the amount of fonts & weights.
-
 ## The base element style definitions
 
-Well, before we start, let's define a list of elements to be referenced as "base-elements". They always MUST be present in the template. Following HTML elements fall into this group:
+Let's define a list of elements to be referenced as "base-elements". They are always present in any base-template. Following HTML elements fall into this group:
 
 - Lists and list items: `<ul>`, `<ol>`, `<li>`
 - Paragraphs: `<p>`
@@ -68,6 +86,8 @@ Well, before we start, let's define a list of elements to be referenced as "base
 - Tables, rows, and columns: `<table>`, `<tr>`, `<td>`, `<th>`
 
 You must approach your designer with this list. Let's now go through the elements and define what is important to consider while designing in order to achieve the most optimal styling.
+
+> **Note**: elements mentioned above are always required, in the next section will talk about common elements in general.
 
 ### List and list items
 
@@ -151,3 +171,52 @@ All those styles are declared in `src/app/style/base/_table.scss`.
 
 ## Shared, common elements
 
+We covered the basic HTML elements, those who are always present. Now, it is time for an investigation. We must go thorough the design and try to squeeze the common elements of out it.
+
+The more repetitive design is - the easier it is to extract the common elements. The most common elements to extract are:
+
+- **Navigation** - it's states, the icons and behaviors
+- **ProductCard** - can be vertical and horizontal, but always displays product information and similar information
+- **ProductAttributes** - used in filtering and product pages, it is preferable define a common style to them
+- **Add to cart** - on PDP or in ProductCard - this element must be styled separately
+- **Price** - the price styles, with cart promotion rules, special prices, discounts, tax, savings from discounts, etc.
+- **Popup** - the common way to display info
+- **Loaders** - some places require loaders instead of placeholders
+
+Let's now cover each in-depth!
+
+### Navigation
+
+Previously it was very common to make it appear on top and stay static. Nowadays, it is a little different. The applications are no longer "small version of desktop websites".
+
+Today, it is important to preserve the customers browsing "state". Where is he? Browsing products, now taking a look on cart, now back to shopping. Pressing "back" button is inconvenient, hard to animate and almost never resembles the good user-experience.
+
+For that exact reason ScandiPWA from version `2.9.0` is using bottom placed navigation. The top space is used to display the back button and provide the information about the current location. This makes browsing the website easy, improved customer experience.
+
+The navigation is no longer static, like it was previously. Today, the header might show different icons and layout while viewing filters, switch to displaying title and back button in PDP and again when going into the cart. State-full header is a new thing designers should learn.
+
+To create a good header template you need to do following:
+1. Define the list of different header states
+2. Extract all different elements and icons from header states
+3. Map the icons in header to discovered states
+4. Define the list of application routes
+5. Map the routes to header states
+
+Mapping of header icons and parts are made in `stateMap` of `src/app/component/Header/Header.component.js`. The mapping of routes to header states happens in `routeMap` of `src/app/component/Header/Header.container.js`. Learn how to extend Header styles in the [override guide](/scandipwa/development/overrides.md).
+
+Header by default has the fixed height and many components are using it's height to position them-self right under it. This height is defined using CSS custom property `--header-height`. Remember to include the `env(safe-area-inset-top)` in you header height declaration. This will allow to compensate for iPhone X notch height.
+
+The bottom navigation is located in `src/app/component/NavigationTabs/NavigationTabs.component.js` and `src/app/component/NavigationTabs/NavigationTabs.container.js`. It also has `routeMap` in container and `stateMap` in component. This is because all navigation in ScandiPWA inherits from `src/app/component/NavigationAbstract/NavigationAbstract.component.js` and `src/app/component/NavigationAbstract/NavigationAbstract.container.js`. This allows to quickly create the navigation matching the best practices listed above.
+
+For state management the Redux is used, global state is encapsulated in NavigationReducer (`src/app/store/Navigation/Navigation.reducer.js`). To modify the existing reducer with your own, new navigation, check the [override guide](/scandipwa/development/overrides.md).
+
+## ProductCard
+
+
+## ProductAttributes
+
+
+## Add to cart
+
+
+## 
