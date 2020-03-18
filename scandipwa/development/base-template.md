@@ -212,11 +212,45 @@ For state management the Redux is used, global state is encapsulated in Navigati
 
 ## ProductCard
 
+The product card, also known as product pod is very common element through-out the project. However, there is a big warning:
+
+> **Note**: please do not try to use one single shared element everywhere. If you will extend and build others on top - this is fine. If you will try to make one element fit in cart, wishlist, product listing page and checkout totals - this might result in a very complex code, which will be very hard to maintain.
+
+From design perspective please do not over-complicate the product-pod with too much data. The more data will be there, the heavier the request will be. This means slower websites. Remember - the less data is requested, the faster the page loads!
+
+The styles and layout of product pod is declared in the `src/app/component/ProductCard` component folder. It uses some smaller components inside, but in general you can style your product card there.
+
+By default, the `<ProductCard>` component is used in:
+- Cart cross-sells
+- Product listing
+- Related products
+- Whish-list items
+- Recently viewed products
 
 ## ProductAttributes
 
+Remember to style swatches and dropdowns.
+
+Their layout can be modified in the `src/app/component/ProductConfigurableAttributes` and `src/app/component/CategoryConfigurableAttributes`. For category and product page accordingly.
+
+The attribute style itself can be found in `src/app/component/ProductAttributeValue` component. Here, you will also find text, multi-select, boolean types. The loading placeholders can also be found there.
+
+By default, remember:
+- **dropdown** typed attributes are displayed as select elements on PDP, and as checkboxes on PLP
+- **swatch** types - as small outlined buttons on PLP and PDP. Visual swatches are rounded into circles.
 
 ## Add to cart
 
+The styles of this element can be found in `src/app/component/AddToCart`.
 
-## 
+## Price
+
+The styles of this element can be found in `src/app/component/ProductPrice`.
+
+## Popup
+
+The styles of this element can be found in `src/app/component/Popup`.
+
+## Loaders
+
+The styles of this element can be found in `src/app/component/Loader`.
