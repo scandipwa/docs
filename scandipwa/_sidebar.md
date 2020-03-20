@@ -15,3 +15,5 @@
 - Advanced guides
 
     - [Base-template](/scandipwa/advanced/base-template.md)
+    - [Create GraphQL resolver](/scandipwa/advanced/creating-resolver.md)
+    - [Connect to GraphQL resolver](/scandipwa/advanced/connecting-resolver.md)

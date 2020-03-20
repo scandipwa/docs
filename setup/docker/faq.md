@@ -22,7 +22,7 @@ In code examples, you might stumble across such declaration:
 git clone git@github.com:<YOUR GITHUB USERNAME>/scandipwa-base.git
 ```
 
-!> **Note**: the `<YOUR GITHUB USERNAME>` is not a literal text to keep, but the "template" to replace with the real value.
+?> **Note**: the `<YOUR GITHUB USERNAME>` is not a literal text to keep, but the "template" to replace with the real value.
 
 ## Search does not work, product can not be saved, can not complete checkout, Magento throwing: `Indexer handler is not available`
 
@@ -359,7 +359,7 @@ This could indicate to current Magento version not matching the the latest versi
     composer require scandipwa/installer ^1.0
     ```
 
-!> **Note**: This will install older versions of ScandiPWA, and we suggest to upgrade Magento to 2.3.3 to make it possible to use latest ScandiPWA versions.
+?> **Note**: This will install older versions of ScandiPWA, and we suggest to upgrade Magento to 2.3.3 to make it possible to use latest ScandiPWA versions.
 
 ## Content customization does not work
 
@@ -398,7 +398,7 @@ dc up -d --remove-orphans
 docker-compose -f docker-compose.yml -f docker-compose.local.yml -f docker-compose.ssl.yml up -d --remove-orphans
 ```
 
-!> **Note**: the customization does not work in "development" mode - when the `frontend` container is running.
+?> **Note**: the customization does not work in "development" mode - when the `frontend` container is running.
 
 ## Luma theme is displayed
 

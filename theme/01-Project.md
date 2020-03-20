@@ -14,7 +14,7 @@
 
 Because this application is compiled to a valid Magento 2 theme, it must follow [Magento theme structure](https://devdocs.magento.com/guides/v2.3/frontend-dev-guide/themes/theme-structure.html).
 
-!> **Note**: initially `Magento_Theme` folder is empty. You have to compile the application (please read [instructions for our bundler](/theme04-Webpack.md)). Or direct to (Quick start instructions)[./05-Quick-Start.md].
+?> **Note**: initially `Magento_Theme` folder is empty. You have to compile the application (please read [instructions for our bundler](/theme04-Webpack.md)). Or direct to (Quick start instructions)[./05-Quick-Start.md].
 
 -   `etc` – _Magento 2 Theme dir_ configuration
 -   `Magento_Theme` – _Magento 2 Theme dir_ Compiled assets

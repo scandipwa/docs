@@ -41,13 +41,13 @@ Others, which must be available in every component style must be moved into `src
 
 Please go through the project and collect the necessary font-faces. Ideally, there must be **no more than 5 font-faces** in total. Otherwise this will strongly affect the website performance.
 
-!> **Note**: sometimes, people assume having one font but in multiple weights is OK - but it is commonly not. For usual fonts every font-weight weights the same. This means that you are not limited by 5 font-families, rather by 5 font-family / font-weight combinations.
+?> **Note**: sometimes, people assume having one font but in multiple weights is OK - but it is commonly not. For usual fonts every font-weight weights the same. This means that you are not limited by 5 font-families, rather by 5 font-family / font-weight combinations.
 
 Try to **remove unused glyphs** (symbols). If your site is not using cyrillic, but the font includes is - ask your designer to remove them. Use services like [FontForge](https://fontforge.org/en-US/) for that!
 
 The `@font-face` declarations are located in `src/public/index.development.html` and `src/public/index.production.phtml`. Overriding those files is a little more complex then you might think. Checkout [our guide](/scandipwa/development/overrides.md) to know more!
 
-!> **Note**: in the `@font-face` declaration, the property `font-display` **MUST** be declared.
+?> **Note**: in the `@font-face` declaration, the property `font-display` **MUST** be declared.
 
 In the same files the following HTML code is present for every font asset. It's task is to start preloading the font, before browser starts parsing CSS:
 
@@ -55,9 +55,9 @@ In the same files the following HTML code is present for every font asset. It's 
 <link rel="preload" href="<LINK TO FONT-FACE>" as="font" type="font/woff2" crossorigin="">
 ```
 
-!> **Note**: the best format for your fonts is the `woff2` - it is almost 10 times smaller than `ttf` in some cases.
+?> **Note**: the best format for your fonts is the `woff2` - it is almost 10 times smaller than `ttf` in some cases.
 
-> **VIP Note**: always prefer serving fonts from server. Google fonts are great, but they do not provide the best performance to your website.
+!> **Note**: always prefer serving fonts from server. Google fonts are great, but they do not provide the best performance to your website.
 
 Make sure to check how your fonts look on Mac, Linux and Windows. Adjust following properties to match your fonts on mentioned platforms (do it before-hand!):
 
@@ -87,13 +87,13 @@ Let's define a list of elements to be referenced as "base-elements". They are al
 
 You must approach your designer with this list. Let's now go through the elements and define what is important to consider while designing in order to achieve the most optimal styling.
 
-!> **Note**: elements mentioned above are always required, in the next section will talk about common elements in general.
+?> **Note**: elements mentioned above are always required, in the next section will talk about common elements in general.
 
 ### List and list items
 
 Please ask your designers to provide the margins of the list items between one another, and around the list element remember to unset it in the `:last-child` pseudo class.
 
-!> **Note**: the `:last-child` reset is not cool, it requires to always override the styles in components, which use `<li>` list items.
+?> **Note**: the `:last-child` reset is not cool, it requires to always override the styles in components, which use `<li>` list items.
 
 Possibly the better way to style the `<li>` element would be to create a class `.List` and `.List_numerated`. Then to replace it in the `<Html>` component. The alternative solution would be to use the [ARIA: Listitem role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Listitem_role) on elements which semantically should be list items, but it is not recommend by the MDN authors.
 
@@ -145,7 +145,7 @@ Additionally the styles for placeholders, errors, notes, success messages, label
 
 The "reset" and base styling is declared in `src/app/style/base/_reset.scss`. There we define the default `min-height` and `min-width` and font sizes.
 
-!> **Note**: font-size on the mobile must be at least 16px! Otherwise the input will zoom in on iOS devices. Please share this with your designer!
+?> **Note**: font-size on the mobile must be at least 16px! Otherwise the input will zoom in on iOS devices. Please share this with your designer!
 
 The next place to look for input styling can be found in `src/app/style/base/_input.scss`, there we are specifically styling the input boxes (for input, textarea, select). Additionally we reset the `[type="number"]` spinners by using following styles:
 
@@ -214,7 +214,7 @@ For state management the Redux is used, global state is encapsulated in Navigati
 
 The product card, also known as product pod is very common element through-out the project. However, there is a big warning:
 
-!> **Note**: please do not try to use one single shared element everywhere. If you will extend and build others on top - this is fine. If you will try to make one element fit in cart, wishlist, product listing page and checkout totals - this might result in a very complex code, which will be very hard to maintain.
+?> **Note**: please do not try to use one single shared element everywhere. If you will extend and build others on top - this is fine. If you will try to make one element fit in cart, wishlist, product listing page and checkout totals - this might result in a very complex code, which will be very hard to maintain.
 
 From design perspective please do not over-complicate the product-pod with too much data. The more data will be there, the heavier the request will be. This means slower websites. Remember - the less data is requested, the faster the page loads!
 

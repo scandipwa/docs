@@ -4,7 +4,7 @@ The set of helper functions aimed to ease the work with URL. Located in `src/app
 
 ## Functions available (public API):
 
-!> **Note**: `match`, `location` and `history` arguments of following functions are passed from `react-router-dom` in [main application router](/theme/10-Architecture.md) to declared routes. This props will not appear in child components of those routes (if not passed as props from route to routes child component).
+?> **Note**: `match`, `location` and `history` arguments of following functions are passed from `react-router-dom` in [main application router](/theme/10-Architecture.md) to declared routes. This props will not appear in child components of those routes (if not passed as props from route to routes child component).
 
 ### `getUrlParam(match, location)`
 
