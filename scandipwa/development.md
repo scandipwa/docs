@@ -8,11 +8,27 @@ Make sure your development environment is configured well. New stack might requi
 
 ### VSCode
 
-> **TODO**: guide though the necessary extensions & customizations required to efficiently work with ScandiPWA. Share the video recording.
+The tools and editors are essential. For PHP - there is a standard "PHPStorm" for React development we encourage using [VSCode](https://code.visualstudio.com/). This is a very popular code editor, with a powerful extension API. We even [have our own](https://github.com/scandipwa/scandipwa-development-toolkit) to help you develop your store faster! Watch the video to configure your editor!
 
-### ESLint and StyleLinters
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hmzcmb611x0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-> **TODO**: guide thought the installation and explain the necessity. Make sure EVERYONE is using it. Share the video recording.
+The  VSCode extensions mentioned:
+- [Better comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments) - the comment highlights
+- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) - write without typos
+- [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) - remote debugger for chrome
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - JS code-style validator
+- [GitLense](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) - better Git integration
+- [ScandiPWA VSCode snippets](https://github.com/scandipwa/scandipwa-development-toolkit) - ScandiPWA extension helper
+- [stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) - SCSS code-style validator
+- [Trailing Spaces](https://marketplace.visualstudio.com/items?itemName=shardulm94.trailing-spaces) - left-over spaces highlighter
+
+### ESLint and StyleLint - code-style validators
+
+Matching code-style is very important. The consistent tabulation, the proper imports, everything matters! We even made [our own ESLint plugin](https://www.npmjs.com/package/@scandipwa/eslint-plugin-scandipwa-guidelines) (for the next ScandiPWA version)!
+
+!!> **Note**: it is almost mandatory to install the ESLint and StyleLint! This will help a lot later, when inspecting the source code or contributing! Please do not skip this step!
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3nO6m4zDnqs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Chrome remote Debugging
 
@@ -20,7 +36,13 @@ Make sure your development environment is configured well. New stack might requi
 
 ### GraphQL Playground
 
-> **TODO**: showcase the tool and explain the usage benefits. Showcase common use scenarios. Showcase the embedded debugger. Share the video recording.
+Knowing the GraphQL schema is important. Using reliable tools from the very begging is crucial for fast delivery. Install them beforehand.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/27IHNDG4Kaw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+The tools mentioned in the video:
+- [GraphQL Playground](https://github.com/prisma-labs/graphql-playground) - the best GraphQL schema editor
+- [Postman](https://www.postman.com/) - the best API explorer
 
 ## Learning the basics
 
@@ -30,11 +52,15 @@ Before we get into modules, examples, and best-practices let's build a solid gro
 
 We proved that flat file structure is beneficial (see more in the [organization patterns article](/scandipwa/organization.md)).
 
-Now, it is time to get familiar in the close up look. The overview of themes location, the internal folder-structure and the pattern observation can be found in the [file structure](/scandipwa/development/file-structure.md) guide.
+Now, it is time to get familiar in the close up look. The overview of themes location, internal folder-structure, and the naming conventions overview can be found in that guide.
+
+[<span class="Button">Explore file structure</span>](/scandipwa/development/file-structure.md)
 
 ### Component architecture
 
-The SPA main goal is to transfer the data into the output on the client's screen. Learn how the data is flowing through the application and what part of the application is responsible for what task by reading [the data-flow guide](/scandipwa/development/data-flow.md).
+The SPA main goal is to transfer the data into the output on the client's screen. Learn how the data is flowing through the application and what part of the application is responsible for what task.
+
+[<span class="Button">Traverse Data-flow diagram</span>](/scandipwa/development/data-flow.md)
 
 ### Override mechanism
 
@@ -42,11 +68,13 @@ No modification to the source-code, fluid migrations from version to version - n
 
 Those are the benefits of our override mechanism. It allows to build on top of the vendor theme like in M2 - just create a file with the same name and location!
 
-Sounds interesting? Dive into the ["Overriding mechanism guide"](/scandipwa/development/overrides.md) now!
+[<span class="Button">Dive into Override mechanism</span>](/scandipwa/development/overrides.md)
 
 ### Debugging guide
 
-> **TODO**: define a behavior pattern to debug the application. From a chrome inspector to the source folder. How BEM helps?
+Being able to find out what is going on, why, and where is crucial for an effective project delivery. We, developers, call this debugging.
+
+[<span class="Button">Discover debugging hints</span>](/scandipwa/development/debugging.md)
 
 ## Going advanced
 
@@ -56,4 +84,4 @@ Time to begin the project development! Let's take a look on our recommendations 
 
 Every design is different. But each has some base elements it is build out of. These base elements, common styles, resets are called "base-template".
 
-See the best approaches for base element styling, font loading and the  in [this guide](/scandipwa/development/base-template.md).
+See the best approaches for base element styling, font loading and the  in [this guide](/scandipwa/advanced/base-template.md).

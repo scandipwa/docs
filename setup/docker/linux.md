@@ -7,13 +7,11 @@ In code examples, you might stumble across such declaration:
 git clone git@github.com:<YOUR GITHUB USERNAME>/scandipwa-base.git
 ```
 
-> **Note**: the `<YOUR GITHUB USERNAME>` is not a literal text to keep, but the "template" to replace with the real value.
+!> **Note**: the `<YOUR GITHUB USERNAME>` is not a literal text to keep, but the "template" to replace with the real value.
 
 ## Follow me setting the theme up
 
-> **Note**: the video will be re-worked, current video has wrong "cuts" in it. Start from `16:16` in the player.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/wzntMZkdlKc?start=977" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+!> **Note**: video is coming soon!
 
 ## Before you start
 
@@ -101,7 +99,7 @@ git clone git@github.com:<YOUR GITHUB USERNAME>/scandipwa-base.git
     git clone https://github.com/scandipwa/scandipwa-base.git
     ```
 
-    > **Note**: sometimes, after the repository is cloned, the git chooses the `master` branch as default. This is the legacy (incorrect) default branch in case of `scandipwa-base`. Please make sure you are using `2.x-stable`. You can do it using following command:
+    !> **Note**: sometimes, after the repository is cloned, the git chooses the `master` branch as default. This is the legacy (incorrect) default branch in case of `scandipwa-base`. Please make sure you are using `2.x-stable`. You can do it using following command:
 
     ```bash
     git status # expected output `On branch 2.x-stable`
@@ -121,7 +119,7 @@ git clone git@github.com:<YOUR GITHUB USERNAME>/scandipwa-base.git
         make cert
         ```
 
-        > **Note**: you will be asked to type in the password 6 times. **This is NOT your host machine password**, this is a **NEW** password for your certificate. This password must be at least 6 characters long.
+        !> **Note**: you will be asked to type in the password 6 times. **This is NOT your host machine password**, this is a **NEW** password for your certificate. This password must be at least 6 characters long.
 
     2. Add certificate to the list of trusted ones. Use this [guide](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html) (or [guide for Arch linux](https://bbs.archlinux.org/viewtopic.php?pid=1776753#p1776753)) to do it. The `new-root-certificate.crt` / `foo.crt` from these guide examples must be replaced with `<PATH TO PROJECT ROOT>/opt/cert/scandipwa-ca.pem`.
 
@@ -129,7 +127,7 @@ git clone git@github.com:<YOUR GITHUB USERNAME>/scandipwa-base.git
 
 3. Pull all necessary container images
 
-    > **Note**: `container image` != `media image`. Read more about [container images here](https://docs.docker.com/v17.09/engine/userguide/storagedriver/imagesandcontainers/).
+    !> **Note**: `container image` != `media image`. Read more about [container images here](https://docs.docker.com/v17.09/engine/userguide/storagedriver/imagesandcontainers/).
 
     ```bash
     # if you have the alias set up
@@ -141,7 +139,7 @@ git clone git@github.com:<YOUR GITHUB USERNAME>/scandipwa-base.git
 
 4. Start the infrastructure
 
-    > **Note**: There are two ways to use the setup: with `frontend` container and without it. The setup with `frontend` container is called **development**. The alias running it is `dcf`, the alias for **production**-like run is `dc`.
+    !> **Note**: There are two ways to use the setup: with `frontend` container and without it. The setup with `frontend` container is called **development**. The alias running it is `dcf`, the alias for **production**-like run is `dc`.
 
     > **VIP Note**: Please run the `dc` (production-like) setup on first installation, otherwise the frontend container will not function properly. After it is up, can switch to `dcf` (development).
 
@@ -165,7 +163,7 @@ git clone git@github.com:<YOUR GITHUB USERNAME>/scandipwa-base.git
         docker-compose -f docker-compose.yml -f docker-compose.local.yml -f docker-compose.ssl.yml -f docker-compose.frontend.yml up -d --remove-orphans
         ```
 
-    > **Note**: the `--remove-orphans` flag is neccessary to remove all left-over containers. In example, if you switched from **development** to **production** setup, the `frontend` container won't keep running.
+    !> **Note**: the `--remove-orphans` flag is neccessary to remove all left-over containers. In example, if you switched from **development** to **production** setup, the `frontend` container won't keep running.
 
 5. Wait until the infrastructure starts
 
@@ -201,7 +199,7 @@ git clone git@github.com:<YOUR GITHUB USERNAME>/scandipwa-base.git
         ℹ ｢wdm｣: Compiled successfully
         ```
 
-        > **Note**: the requests to `/graphql` will still fail, you need to wait until the `app` container starts. See instruction in bullet-point above current to see how.
+        !> **Note**: the requests to `/graphql` will still fail, you need to wait until the `app` container starts. See instruction in bullet-point above current to see how.
 
 ## How to access the site?
 
@@ -255,7 +253,7 @@ To get the [demo.scandipwa.com](https://demo.scandipwa.com/) content (but withou
 
     - Get media files automatically
 
-        > **Note**: the following command requires you to have the `wget` binary available. To check if it is available, use following command:
+        !> **Note**: the following command requires you to have the `wget` binary available. To check if it is available, use following command:
 
         ```bash
         wget --version # should output version ^1

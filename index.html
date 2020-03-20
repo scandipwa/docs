@@ -13,6 +13,35 @@
 </head>
 <body>
   <div id="app"></div>
+  <style>
+  :root {
+    --code-block-line-height: 1.2;
+    --theme-color: rgb(242, 99, 35);
+    --sidebar-nav-pagelink-background-image--active: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11.2' height='7' viewBox='0 0 11.2 7'%3E%3Cpath d='M1.5 1.5l4.1 4 4.1-4' stroke-width='1.5' stroke='rgb%28242, 99, 35%29' fill='none' stroke-linecap='square' stroke-linejoin='miter' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+  }
+
+  iframe {
+    background: #e3e3e3;
+  }
+
+  .Button {
+    display: inline-block;
+    padding: 6px 15px;
+    border: 1px solid var(--theme-color);
+    background-color: transparent;
+    color: var(--theme-color);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: .9rem;
+    letter-spacing: .5px;
+    transition: all var(--duration-fast);
+  }
+
+  .Button:hover {
+    color: #fff;
+    background-color: var(--theme-color);
+  }
+  </style>
   <script>
     window.$docsify = {
       logo: '/images/logo.svg',

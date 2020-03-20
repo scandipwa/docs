@@ -11,11 +11,11 @@ In code examples, you might stumble across such declaration:
 git clone git@github.com:<YOUR GITHUB USERNAME>/scandipwa-base.git
 ```
 
-> **Note**: the `<YOUR GITHUB USERNAME>` is not a literal text to keep, but the "template" to replace with the real value.
+!> **Note**: the `<YOUR GITHUB USERNAME>` is not a literal text to keep, but the "template" to replace with the real value.
 
 ## Watch video
 
-> **Note**: video is coming soon!
+!> **Note**: video is coming soon!
 
 ## Before you start
 
@@ -41,7 +41,7 @@ git clone git@github.com:<YOUR GITHUB USERNAME>/scandipwa-base.git
 
     If it is not, please follow [official documentation](https://devdocs.magento.com/guides/v2.3/config-guide/varnish/config-varnish.html) to set it up.
 
-    > **Note**: varnish is important! Please validate if it is installed with your hosting provider / developer.
+    !> **Note**: varnish is important! Please validate if it is installed with your hosting provider / developer.
 
 5. Make sure the `Redis` is installed on your host / infrastructure. To validate the installation run following:
 
@@ -51,7 +51,7 @@ git clone git@github.com:<YOUR GITHUB USERNAME>/scandipwa-base.git
 
     If it is not installed, please follow [this guide](https://codewithhugo.com/install-just-redis-cli-on-ubuntu-debian-jessie/) to obtain it.
 
-    > **Note**: steps 5. and 6. are the requirements of `scandipwa/persisted-query` package.
+    !> **Note**: steps 5. and 6. are the requirements of `scandipwa/persisted-query` package.
 
 ## It is time to setup!
 
@@ -96,7 +96,7 @@ git clone git@github.com:<YOUR GITHUB USERNAME>/scandipwa-base.git
 
 3. Install the ScandiPWA theme:
 
-    > **Note**: by default for `<YOUR VENDOR>/<YOUR THEME>` we are using `Scandiweb/pwa`. But you can choose any other one.
+    !> **Note**: by default for `<YOUR VENDOR>/<YOUR THEME>` we are using `Scandiweb/pwa`. But you can choose any other one.
 
     ```bash
     php bin/magento scandipwa:theme:bootstrap <YOUR VENDOR>/<YOUR THEME>
@@ -132,13 +132,13 @@ Upon immediate inspection theme could appear fine, but might not load at all. Pl
 
 2. Homepage not showing - refer to the [FAQ](/setup/docker/faq.md), search for `404 on Homepage`.
 
-> **Note**: after changing those configurations remember to flush the Magento caches.
+!> **Note**: after changing those configurations remember to flush the Magento caches.
 
 For other issues, follow this simple algorithm:
 
 1. Refer to the [FAQ page](/setup/docker/faq.md). It most probably already has the solution to your problem.
 
-    > **Note**: the Docker setup related issues are also mentioned in this document.
+    !> **Note**: the Docker setup related issues are also mentioned in this document.
 
 2. If the issue still persists, [join our community slack](https://join.slack.com/t/scandipwa/shared_invite/enQtNzE2Mjg1Nzg3MTg5LTQwM2E2NmQ0NmQ2MzliMjVjYjQ1MTFiYWU5ODAyYTYyMGQzNWM3MDhkYzkyZGMxYTJlZWI1N2ExY2Q1MDMwMTk), and feel free to ask questions in `#pwa_tech` public channel.
 

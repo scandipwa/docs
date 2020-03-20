@@ -118,7 +118,7 @@ For elements which require user interaction, `:focus` and `:focus-within` are of
 ...
 ```
 
-> **NOTE**: it is very complex to keep nesting levels low while styling with accessibility in mind. We do not have any solutions for this issue at the moment.
+!> **Note**: it is very complex to keep nesting levels low while styling with accessibility in mind. We do not have any solutions for this issue at the moment.
 
 ## Functions available
 

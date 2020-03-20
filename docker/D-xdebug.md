@@ -1,5 +1,9 @@
 # XDebug Setup and Usage
 
+## Watch the video tutorial
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vCcT7TPv8lA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Setup
 
 php with xdebug is can be set for local, by changing $PROJECT_IMAGE variable to `xdebug` in corresponding `.env` files, ensuring corrent docker image to be used.

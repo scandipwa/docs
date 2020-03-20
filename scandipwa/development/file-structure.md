@@ -2,15 +2,19 @@
 
 The theme is expected to be found in Magento's directory for themes: `app/design/frontend/<VENDOR>/<NAME>`.
 
-> **Note**: in docker, by default, the theme is located in `app/design/frontend/Scandiweb/pwa`.
+!> **Note**: in docker, by default, the theme is located in `app/design/frontend/Scandiweb/pwa`.
 
 The source theme (composer installed) is located in `vendor/scandipwa/source`. Reference it for efficient development.
+
+## Watch an explanation video
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vrFJDLS-K3s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Observe Magento related files
 
 Because the ScandiPWA is compiled to a valid Magento 2 theme, it must follow [Magento theme structure](https://devdocs.magento.com/guides/v2.3/frontend-dev-guide/themes/theme-structure.html).
 
-> **NOTE**: initially `Magento_Theme` folder is empty. You have to compile the application - see the [FAQ](/setup/docker/faq?id=luma-theme-is-displayed).
+!> **Note**: initially `Magento_Theme` folder is empty. You have to compile the application - see the [FAQ](/setup/docker/faq?id=luma-theme-is-displayed).
 
 ```bash
 📦base-theme

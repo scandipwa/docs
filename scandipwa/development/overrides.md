@@ -2,6 +2,10 @@
 
 ScandiPWA is not meant to be modified, rather extended. This means no changes must be done it the source theme (`vendor/scandipwa/source`), rather changes in `app/design/frontend/<VENDOR>/<THEME>` must be made.
 
+## Watch an explanation video
+
+!> **Note**: video is in production
+
 ## A step-by-step algorithm for JavaScript
 
 You create a file with the same name, under the same folder - reference the `vendor/scandipwa/source` to find the exact name and file. But in general, the algorithm is as follows:
@@ -22,7 +26,7 @@ You create a file with the same name, under the same folder - reference the `ven
 
     4. If you only want to adjust style, you will need to create and import new additional file - `<COMPONENT NAME>.style.override.scss`
 
-        > **Note**: you are required to import this new style file in `<COMPONENT NAME>.component.js` or, even in `<COMPONENT NAME>.container.js`, it just must be imported.
+        !> **Note**: you are required to import this new style file in `<COMPONENT NAME>.component.js` or, even in `<COMPONENT NAME>.container.js`, it just must be imported.
 
 3. Using the [VSCode extension](https://github.com/scandipwa/scandipwa-development-toolkit) or manually **create a files with the correct name in the correct folder**. The folder naming logic is as follows:
 
@@ -30,7 +34,7 @@ You create a file with the same name, under the same folder - reference the `ven
 
     2. If it is a page, or a route - search for it in the `app/route/<COMPONENT NAME>/`.
 
-    > **Note**: there will never be a component folder nested in another component folder! The file-structure is flat, and consistent.
+    !> **Note**: there will never be a component folder nested in another component folder! The file-structure is flat, and consistent.
 
 4. The file is created, what next? Time to write some JavaScript. The main idea for extension - you are replacing the file, so all exposed "API"s especially `export` must be preserved. The general template looks as follows:
 
@@ -223,7 +227,7 @@ ScandiPWA has a long-standing bug - the templates are impossibble to override. F
 
 1. Rename the files, in exmaple, from `src/public/index.development.html` to `src/public/my-index.development.html`, and from `src/public/index.production.phtml` to `src/public/my-index.production.phtml`.
 
-    > **Note**: we renamed from `index` to `my-index`! You can rename to anything else.
+    !> **Note**: we renamed from `index` to `my-index`! You can rename to anything else.
 
 2. Change their webpack import declarations. In both webpack configurations (`webpack.development.config.js`, `webpack.production.config.js`) change following line:
 

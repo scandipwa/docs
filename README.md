@@ -1,6 +1,6 @@
 # ScandiPWA Documentation
 
-> **Note**: currently documentation is under development. Sorry for inconvenience!
+!> **Note**: currently documentation is under development. Sorry for inconvenience!
 
 ScandiPWA is a single page application (SPA) theme for Magento with advanced PWA capabilities.
 
@@ -16,7 +16,7 @@ ScandiPWA is a theme for Magento 2. It can be [installed using composer on exist
 
 Often, we do not have Magento 2 installed on our local host, or we do not want to install something manually - in that case, we have a docker setup ([for linux](/setup/docker/linux.md), [for mac](/setup/docker/mac.md), and [for windows](/setup/docker/windows.md)).
 
-> **Note**: we strongly recommend setting up using docker. Why? Because it allows us to exclude the environment-related issues from possible reasons when debugging & looking for solutions. There is a whole [FAQ](/setup/docker/faq.md) for most common docker-setup related issue.
+!> **Note**: we strongly recommend setting up using docker. Why? Because it allows us to exclude the environment-related issues from possible reasons when debugging & looking for solutions. There is a whole [FAQ](/setup/docker/faq.md) for most common docker-setup related issue.
 
 In case you would like to use docker setup in production - [see following guide](/setup/docker/production.md).
 

@@ -8,6 +8,10 @@
 - Development practices
 
     - [File structure](/scandipwa/development/file-structure.md)
-    - [Customization guide](/scandipwa/development/overrides.md)
-    - [Base-template](/scandipwa/development/base-template.md)
-    - [Data-flow](/scandipwa/development/data-flow.md)
+    - [Customization](/scandipwa/development/overrides.md)
+    - [Debugging](/scandipwa/development/debugging.md)
+    - [Data flow diagram](/scandipwa/development/data-flow.md)
+
+- Advanced guides
+
+    - [Base-template](/scandipwa/advanced/base-template.md)

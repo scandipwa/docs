@@ -25,6 +25,10 @@ And some, just did not age well or stopped being supported:
 
 Let's now compare the old and new one's and see why was a decision made and what were the alternatives of the chosen technology.
 
+## Watch an explanation video
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fJV6wUZvvWw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## React _vs_ JQuery
 
 > **TODO**: compare JQuery algorithm and React, explain the gain in performance. Briefly compare React to Vue and Angular.

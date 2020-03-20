@@ -8,9 +8,9 @@ While using this setup:
 2. All `/graphql` requests are sent to your remote server
 3. There is an Nginx routing the requests
 
-> **Note**: it is impossible to test the website in production mode (of the webpack build). This is the main downside of this approach.
+!> **Note**: it is impossible to test the website in production mode (of the webpack build). This is the main downside of this approach.
 
-> **Note**: the `https://scandipwa.local` wont be available. The PWA features will not function.
+!> **Note**: the `https://scandipwa.local` wont be available. The PWA features will not function.
 
 <hr>
 
@@ -21,7 +21,7 @@ In code examples, you might stumble across such declaration:
 git clone git@github.com:<YOUR GITHUB USERNAME>/scandipwa-base.git
 ```
 
-> **Note**: the `<YOUR GITHUB USERNAME>` is not a literal text to keep, but the "template" to replace with the real value.
+!> **Note**: the `<YOUR GITHUB USERNAME>` is not a literal text to keep, but the "template" to replace with the real value.
 
 ## Before you start
 
@@ -159,7 +159,7 @@ The theme can be developed in two modes - as contribution into core theme, or as
     git clone https://github.com/scandipwa/base-theme.git
     ```
 
-    > **Note**: sometimes, after the repository is cloned, the git chooses the `master` branch as default. This is the legacy (incorrect) default branch in case of `base-theme`. Please make sure you are using `2.x-stable`. You can do it using following command:
+    !> **Note**: sometimes, after the repository is cloned, the git chooses the `master` branch as default. This is the legacy (incorrect) default branch in case of `base-theme`. Please make sure you are using `2.x-stable`. You can do it using following command:
 
     ```bash
     git status # expected output `On branch 2.x-stable`
@@ -182,7 +182,7 @@ The theme can be developed in two modes - as contribution into core theme, or as
 
 ### For custom theme development
 
-> **Note**: initial setup must happen on real instance. After the bootstrapped theme is committed to the repository, you can proceed with this installation.
+!> **Note**: initial setup must happen on real instance. After the bootstrapped theme is committed to the repository, you can proceed with this installation.
 
 1. Create a new folder
 
@@ -240,7 +240,7 @@ ls
 
 2. Open un-secure [http://scandipwa.local](http://scandipwa.local) domain
 
-> **Note**: in case you are getting CORS issues printed out in console, make sure to run chrome with disabled web-security flag set.
+!> **Note**: in case you are getting CORS issues printed out in console, make sure to run chrome with disabled web-security flag set.
 
 ## Something does not work?
 
@@ -248,7 +248,7 @@ Follow this simple algorithm:
 
 1. Refer to the [FAQ page](/setup/docker/faq.md). It most probably already has the solution to your problem.
 
-    > **Note**: the Docker setup related issues are also mentioned in this document.
+    !> **Note**: the Docker setup related issues are also mentioned in this document.
 
 2. If the issue still persists, [join our community slack](https://join.slack.com/t/scandipwa/shared_invite/enQtNzE2Mjg1Nzg3MTg5LTQwM2E2NmQ0NmQ2MzliMjVjYjQ1MTFiYWU5ODAyYTYyMGQzNWM3MDhkYzkyZGMxYTJlZWI1N2ExY2Q1MDMwMTk), and feel free to ask questions in `#pwa_tech` public channel.
 
