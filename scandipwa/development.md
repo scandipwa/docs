@@ -26,13 +26,19 @@ The  VSCode extensions mentioned:
 
 Matching code-style is very important. The consistent tabulation, the proper imports, everything matters! We even made [our own ESLint plugin](https://www.npmjs.com/package/@scandipwa/eslint-plugin-scandipwa-guidelines) (for the next ScandiPWA version)!
 
-!?> **Note**: it is almost mandatory to install the ESLint and StyleLint! This will help a lot later, when inspecting the source code or contributing! Please do not skip this step!
+!> **Note**: it is mandatory to install the ESLint and StyleLint! This will help a lot later, when inspecting the source code or contributing! Please do not skip this step!
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/3nO6m4zDnqs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Chrome remote Debugging
 
-> **TODO**: guide through the installation quirks of the VSCode remote debugger for Chrome. Share the video recording.
+Configuring the remote debugging can be quite challenging. Debugging in the browser requires additional tools. Watch the tutorial video, and configure your Chrome and VSCode for remote debugging.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cyDwoVLH_hA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Chrome extensions mentioned in this video:
+- [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) - the component state & props inspector
+- [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en) - the global state inspection tool
 
 ### GraphQL Playground
 

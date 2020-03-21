@@ -20,6 +20,10 @@ Everyone is struggling to remember the component names, especially on such a hug
    4. Open the `<BLOCK>.component`, `<BLOCK>.container`, `<BLOCK>.style` - depending on your needs
    5. Now, you can extend it, modify it, or simply investigate
 
+## Configure the remote debugging
+
+If you have troubles inspecting the element or debugging JavaScript - checkout our [Chrome debugger](http://localhost:4000/#/scandipwa/development?id=chrome-remote-debugging) configuration tutorial.
+
 ## Something is breaking for seemingly no reason?
 
 [Join the Slack channel](https://join.slack.com/t/scandipwa/shared_invite/enQtNzE2Mjg1Nzg3MTg5LTQwM2E2NmQ0NmQ2MzliMjVjYjQ1MTFiYWU5ODAyYTYyMGQzNWM3MDhkYzkyZGMxYTJlZWI1N2ExY2Q1MDMwMTk) and do not hesitate to share your problem there!
