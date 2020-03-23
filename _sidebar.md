@@ -18,8 +18,7 @@
     - [Design principles](/scandipwa/organization.md)
     - [Development guide](/scandipwa/development.md)
 
-    ***
-
+<!-- 
     - [Project (deprecated)](/theme/01-Project.md)
     - [Overview (deprecated)](/theme/02-Overview.md)
     - [Configuration (deprecated)](/theme/03-Configuration.md)
@@ -32,7 +31,7 @@
     - [Architecture (deprecated)](/theme/10-Architecture.md)
     - [Utilities (deprecated)](/theme/11-Utilities.md)
     - [Components (deprecated)](/theme/12-Components.md)
-    - [VSCode (deprecated)](/theme/A-vscode.md)
+    - [VSCode (deprecated)](/theme/A-vscode.md) -->
 
 - Docker setup
 

@@ -423,3 +423,66 @@ If after following all steps of installation the `Luma` or other default theme k
     Check the frontend again after that.
 
 ## Invalid regular expression: missing /
+
+If you see the blank screen and the browser console is showing an error:
+
+```bash
+Uncaught SyntaxError: Invalid regular expression: missing /
+```
+
+> **Note**: these steps require validation, please report in Slack what fixed that issue for you!
+
+Validate tree, simple things:
+- You ran `npm ci` not `npm i`
+- You have not run `npm update`
+- Your NodeJS higher than `10.5.0`, tested on `10.19.0`
+
+After fix of any of those issues, rebuild a theme.
+
+## Missing package.json file
+
+If when setting up for the first time the following error appeared:
+
+```bash
+ENOENT: no such file or directory, open '<PATH_TO_THEME_FOLDER>/package.json'
+```
+
+You have executed the installation in the wrong order. First must come the **production**-like setup (`dc`), and only then **development** (`dcf`). To resolve:
+
+1. Removed the theme folder, remove the `<THEME_VENDOR_NAME>/<THEME_NAME>` (by default `Scandiweb/pwa`), like this:
+
+    ```bash
+    rm -rf <PATH_TO_THEME_FOLDER>
+    ```
+
+2. Re-run the setup in **production**-like mode:
+
+    ```bash
+    # if you have the alias set up
+    dc up -d --remove-orphans
+
+    # without aliases (not recommended)
+    docker-compose -f docker-compose.yml -f docker-compose.local.yml -f docker-compose.ssl.yml up -d --remove-orphans
+    ```
+
+3. Wait until the application finishes starting, using the following command:
+
+    ```bash
+    # if you have the alias set up
+    applogs
+
+    # without aliases (not recommended)
+    docker-compose logs -f --tail=100 app
+    ```
+
+4. Re-run the **development** setup:
+
+    ```bash
+    # if you have the alias set up
+    dcf up -d --remove-orphans
+
+    # without aliases (not recommended)
+    docker-compose -f docker-compose.yml -f docker-compose.local.yml -f docker-compose.ssl.yml -f docker-compose.frontend.yml up -d --remove-orphans
+    ```
+
+!> Remember, initial project setup must happen in **production**-like mode. Only later (on next run) you can switch to **development**.

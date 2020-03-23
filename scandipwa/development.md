@@ -88,6 +88,20 @@ Time to begin the project development! Let's take a look on our recommendations 
 
 ### Base template (theming)
 
-Every design is different. But each has some base elements it is build out of. These base elements, common styles, resets are called "base-template".
+Every design is different. But each has some base elements it is build out of. These base elements, common styles, resets are called project`s "base-template". The best approaches for base element styling, font loading and the common element implementation in one place.
 
-See the best approaches for base element styling, font loading and the  in [this guide](/scandipwa/advanced/base-template.md).
+[<span class="Button">start base template development</span>](/scandipwa/advanced/base-template.md)
+
+### GraphQL resolver creation
+
+The new way to communicate with a server is called the GraphQL API. Graphs... Sounds very complicated to develop for! Afraid not, we got you covered! Turns out it is a pretty simple task!
+
+Learn how to define the GraphQL resolver and modify the schema in Magento 2!
+
+[<span class="Button">Create first GraphQL resolver</span>](/scandipwa/advanced/creating-resolver.md)
+
+### Connect to GraphQL resolver
+
+You already have a GraphQL resolver? Wow! Awesome. Learn how to connect it to the front-end and make the data request. Learn the difference in request methods!
+
+[<span class="Button">Connect to the GraphQL resolver</span>](/scandipwa/advanced/connecting-resolver.md)

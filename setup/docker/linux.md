@@ -1,13 +1,6 @@
 # Linux local setup (using docker)
 
-In code examples, you might stumble across such declaration:
-
-```bash
-# to clone the fork
-git clone git@github.com:<YOUR GITHUB USERNAME>/scandipwa-base.git
-```
-
-?> **Note**: the `<YOUR GITHUB USERNAME>` is not a literal text to keep, but the "template" to replace with the real value.
+This guide is for setting up on linux machines. This guide is meant for **local installation only**.
 
 ## Follow me setting the theme up
 
@@ -99,7 +92,7 @@ git clone git@github.com:<YOUR GITHUB USERNAME>/scandipwa-base.git
     git clone https://github.com/scandipwa/scandipwa-base.git
     ```
 
-    ?> **Note**: sometimes, after the repository is cloned, the git chooses the `master` branch as default. This is the legacy (incorrect) default branch in case of `scandipwa-base`. Please make sure you are using `2.x-stable`. You can do it using following command:
+    > **Note**: sometimes, after the repository is cloned, the git chooses the `master` branch as default. This is the legacy (incorrect) default branch in case of `scandipwa-base`. Please make sure you are using `2.x-stable`. You can do it using following command:
 
     ```bash
     git status # expected output `On branch 2.x-stable`
@@ -119,7 +112,7 @@ git clone git@github.com:<YOUR GITHUB USERNAME>/scandipwa-base.git
         make cert
         ```
 
-        ?> **Note**: you will be asked to type in the password 6 times. **This is NOT your host machine password**, this is a **NEW** password for your certificate. This password must be at least 6 characters long.
+        > **Note**: you will be asked to type in the password 6 times. **This is NOT your host machine password**, this is a **NEW** password for your certificate. This password must be at least 6 characters long.
 
     2. Add certificate to the list of trusted ones. Use this [guide](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html) (or [guide for Arch linux](https://bbs.archlinux.org/viewtopic.php?pid=1776753#p1776753)) to do it. The `new-root-certificate.crt` / `foo.crt` from these guide examples must be replaced with `<PATH TO PROJECT ROOT>/opt/cert/scandipwa-ca.pem`.
 
@@ -127,7 +120,7 @@ git clone git@github.com:<YOUR GITHUB USERNAME>/scandipwa-base.git
 
 3. Pull all necessary container images
 
-    ?> **Note**: `container image` != `media image`. Read more about [container images here](https://docs.docker.com/v17.09/engine/userguide/storagedriver/imagesandcontainers/).
+    > **Note**: `container image` != `media image`. Read more about [container images here](https://docs.docker.com/v17.09/engine/userguide/storagedriver/imagesandcontainers/).
 
     ```bash
     # if you have the alias set up
@@ -137,69 +130,73 @@ git clone git@github.com:<YOUR GITHUB USERNAME>/scandipwa-base.git
     docker-compose -f docker-compose.yml -f docker-compose.local.yml -f docker-compose.ssl.yml pull
     ```
 
-4. Start the infrastructure
+***
 
-    ?> **Note**: There are two ways to use the setup: with `frontend` container and without it. The setup with `frontend` container is called **development**. The alias running it is `dcf`, the alias for **production**-like run is `dc`.
+There are two ways to use the setup: with `frontend` container and without it. The setup with `frontend` container is called **development**. The alias running it is `dcf`. The alias for **production**-like run is `dc`. If this is your first time setting up, run the (production-like) setup first (follow the step 4), otherwise the frontend container will not function properly.
 
-    !> **Note**: Please run the `dc` (production-like) setup on first installation, otherwise the frontend container will not function properly. After it is up, can switch to `dcf` (development).
+?> **Note**: If you have already ran ScandiPWA in **production**-like mode once, you can safely skip to step 6. In case, of course, you plan on development.
 
-    - For **production**-like setup:
+***
 
-        ```bash
-        # if you have the alias set up
-        dc up -d --remove-orphans
+4. Start the infrastructure in **production-like** mode
 
-        # without aliases (not recommended)
-        docker-compose -f docker-compose.yml -f docker-compose.local.yml -f docker-compose.ssl.yml up -d --remove-orphans
-        ```
+    ```bash
+    # if you have the alias set up
+    dc up -d --remove-orphans
 
-    - For **development** setup:
+    # without aliases (not recommended)
+    docker-compose -f docker-compose.yml -f docker-compose.local.yml -f docker-compose.ssl.yml up -d --remove-orphans
+    ```
 
-        ```bash
-        # if you have the alias set up
-        dcf up -d --remove-orphans
-
-        # without aliases (not recommended)
-        docker-compose -f docker-compose.yml -f docker-compose.local.yml -f docker-compose.ssl.yml -f docker-compose.frontend.yml up -d --remove-orphans
-        ```
-
-    ?> **Note**: the `--remove-orphans` flag is neccessary to remove all left-over containers. In example, if you switched from **development** to **production** setup, the `frontend` container won't keep running.
+    > **Note**: the `--remove-orphans` flag is necessary to remove all left-over containers. In example, if you switched from **development** to **production** setup, the `frontend` container won't keep running.
 
 5. Wait until the infrastructure starts
 
-    - After the previous command is executed, the site won't be available quickly, it takes about 140s to start, you can see when the application is ready to receive the requests by watching `app` logs, using this command:
+    After the previous command is executed, the site won't be available quickly, it takes about 140s to start, you can see when the application is ready to receive the requests by watching `app` logs, using this command:
 
-        ```bash
-        # if you have the alias set up
-        applogs
+    ```bash
+    # if you have the alias set up
+    applogs
 
-        # without aliases (not recommended)
-        docker-compose logs -f --tail=100 app
-        ```
+    # without aliases (not recommended)
+    docker-compose logs -f --tail=100 app
+    ```
 
-        If you can see following output, the application is ready!
+    If you can see following output, the application is ready!
 
-        ```bash
-        NOTICE: ready to handle connections
-        ```
+    ```bash
+    NOTICE: ready to handle connections
+    ```
 
-    - If you are using the **development** setup - the page will be available much faster, after the `frontend` container will compile a theme. You can track the progress using following command:
+6. Start the development-setup (optional)
 
-        ```bash
-        # if you have the alias set up
-        frontlogs
+    ```bash
+    # if you have the alias set up
+    dcf up -d --remove-orphans
 
-        # without aliases (not recommended)
-        docker-compose -f docker-compose.yml -f docker-compose.local.yml -f docker-compose.ssl.yml -f docker-compose.frontend.yml logs -f --tail=100 frontend
-        ```
+    # without aliases (not recommended)
+    docker-compose -f docker-compose.yml -f docker-compose.local.yml -f docker-compose.ssl.yml -f docker-compose.frontend.yml up -d --remove-orphans
+    ```
 
-        If you can see following output, the frontend is ready!
+7. Wait until the development infrastructure starts
 
-        ```bash
-        ℹ ｢wdm｣: Compiled successfully
-        ```
+    In **development** setup - the page will be available much faster rather than in **production**-like setup - right after the theme compilation in `frontend` container. You can track the progress using following command:
 
-        ?> **Note**: the requests to `/graphql` will still fail, you need to wait until the `app` container starts. See instruction in bullet-point above current to see how.
+    ```bash
+    # if you have the alias set up
+    frontlogs
+
+    # without aliases (not recommended)
+    docker-compose -f docker-compose.yml -f docker-compose.local.yml -f docker-compose.ssl.yml -f docker-compose.frontend.yml logs -f --tail=100 frontend
+    ```
+
+    If you can see following output, the frontend is ready!
+
+    ```bash
+    ℹ ｢wdm｣: Compiled successfully
+    ```
+
+    > **Note**: the requests to `/graphql` will still fail, you need to wait until the `app` container starts. See instruction in step 5 to see how.
 
 ## How to access the site?
 
@@ -253,7 +250,7 @@ To get the [demo.scandipwa.com](https://demo.scandipwa.com/) content (but withou
 
     - Get media files automatically
 
-        ?> **Note**: the following command requires you to have the `wget` binary available. To check if it is available, use following command:
+        > **Note**: the following command requires you to have the `wget` binary available. To check if it is available, use following command:
 
         ```bash
         wget --version # should output version ^1
@@ -278,6 +275,12 @@ To get the [demo.scandipwa.com](https://demo.scandipwa.com/) content (but withou
             ```bash
             tar -zxvf scandipwa_media.tgz
             ```
+
+## Want some development guidance?
+
+Stuck? Don't know where to start? Checkout our development guide! It will guide you through the best-practices working with ScandiPWA! How to debug, configure the code-editor, code-style checker and create your first base-template! This, and much-much more in:
+
+[<span class="Button">Our awesome development guide</span>](/scandipwa/development.md)
 
 ## Something does not work?
 

@@ -4,6 +4,10 @@ Template is using as much of pre-builts and originally shipped images as possibl
 
 All services are defined within docker-compose.yml and can be enabled or disabled depending or project needs.
 
+## Watch video
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-RWQB4US4tg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## List of available services:
 
 -   app **scandiweb pre-built version is available** - - **build is required** - application running and maintaining (php, composer, nodejs, gulp, ruby, python). Latest versions available from: <https://hub.docker.com/scandipwa/scandipwa-base>

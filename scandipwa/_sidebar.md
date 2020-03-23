@@ -1,4 +1,3 @@
-
 - Theme overview
 
     - [Frontend stack Q&A](/scandipwa/stack.md)
