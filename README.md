@@ -1,5 +1,7 @@
 # ScandiPWA Documentation
 
+> THIS REPO IS DEPRECATED, PLEASE SEE https://github.com/scandipwa/scandipwa.github.io FOR NEW DOCS
+
 ?> **Note**: currently documentation is under development. Sorry for inconvenience!
 
 ScandiPWA is a single page application (SPA) theme for Magento with advanced PWA capabilities.
